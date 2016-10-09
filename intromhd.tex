@@ -1,0 +1,450 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Dynamic of fluids. MHD equations.}
+\PartialToc
+
+\section{Vectorial and upper order identity}
+
+\begin{align*}
+&\nabla\cdot(\vec{v}\cdot\ten{P})=\vec{v}\cdot(\nabla\cdot\ten{P})+\ten{P}:(\nabla\vec{v})\\
+&\ten{A}:\ten{B}=\Tr{A*B^T}
+\end{align*}
+
+\section{Dynamic equilibrium}
+
+When there is motion we have a dynamical equilibrium and we have to add inertial term to hydrostatic condition (equilibrium is referred to comoving frame with fluid).
+
+\subsection{Acceleration in fluid with spherical symmetry}
+
+\begin{align*}
+&\frac{v(r+v\,dt,t+dt)-v(r,t)}{dt}\to\TDof{t}v\\
+&=\PDy{t}{v}+v\PDy{r}{v}&\intertext{Acceleration results from change in the velocity field at given place and the change due to the fact that fluid element moves. The first term is Eulerian variation, the whole is Lagrangian derivative. More generaly Lagrangian derivative defines the rate of change along with moving fluid $\downarrow$}\\
+&\TDof{t}=\PDof{t}+\scap{v}{\nabla}
+\end{align*}
+
+\subsection{Eulerian description}
+
+In Eulerian description all physical properties of fluid ($\vec{v}$, P $\rho$, T, etc) are regarded as field quantities depending on $(\vec{r},t)$ where $\vec{r}$ is the position of point of observation.
+
+\subsection{Lagrangian description}
+
+Motion of a given fluid element is followed: $\vec{r}$ denotes position of a given element depending on t and in general in 3D space on 3 parameter, if the are the component of the vector which was identical to $\vec{r}$ at say $t=0$ we have $\vec{r}(\vec{a},t)$ where $\vec{r}(\vec{a},0)=\vec{a}$.
+
+Lagrangian description is used in 1D problem where a may represent T or interior mass.
+
+\subsection{Material derivative}
+
+Using the Lagrangian position variable we have 
+\begin{align*}
+&\dvec{r}=\TDy{t}{\vec{r}}=\vec{v}(\vec{r},t)\\
+&\TDof{t}=\PDof{t}+\scap{v}{\nabla}
+\end{align*}
+
+
+\subsection{Equilibrium condition}
+
+\begin{align*}
+&\TDy{r}{P}+G\frac{m(r)\rho(r)}{r^2}=0&\intertext{alla condizione di equilibrio idrostatico aggiungo il termine dovuto all'accelerazione $\rho\TDy{t}{v}$ nel riferimento solidale all'elemento di fluido:}\\
+&\rho(\PDy{t}{v}+v\PDy{r}{v})+\PDy{r}{P}+\frac{Gm(r)}{r^2}\rho=0&\intertext{vedi conservazione del momento}
+\end{align*}
+
+\subsection{Stationary flow. Bernoulli's equation: barotropic regime.}
+It show how velocity of flow is affected by gravity and changes in density
+\begin{align*}
+&\rho(v\PDy{r}{v})+\PDy{r}{P}+\frac{Gm(r)}{r^2}\rho=0&\intertext{in stationary flow $v$ is function of r alone. In barotropic regime  $P(\rho)$ and $\uparrow$ integrates to }\\
+&\frac{v^2}{2}+F(\rho)-\frac{GM}{r}=const&\intertext{$\uparrow$ Bernoulli's equation.}\\
+&\rho\,dF=dP=c_s^2\,d\rho
+\end{align*}
+
+For a perfect adiabatic gas $F=\frac{\gamma}{\gamma-1}\frac{P}{\rho}$ and Bernoulli's equation become
+
+\begin{align*}
+&\frac{v^2}{2}+\frac{c_s^2}{\gamma-1}-\frac{GM}{r}=\frac{v_0^2}{2}+\frac{c_{s0}^2}{\gamma-1}-\frac{GM}{r_0}&\intertext{In the isothermal regime the sound speed is a constant:}\\
+&\gamma\to1,\quad c_s^2=\TDy{\rho}{P}
+\end{align*}
+
+\section{Leggi di conservazione}
+
+In astrophysical context $\vec{f}$ the force per unit mass is denoted by $\vec{g}$ the gravitational acceleration.
+
+\subsection{Mass conservation}
+
+A shell $[r,r+dr]$ contains mass $4\pi r^2\rho\,dr$: in infinitesimal time $dt$ a particle moves by $v(r,t\,dt)$ so
+
+\begin{align*}
+&r^2\to r^22rv\,dt\\
+&dr\to dr+dr\PDy{r}{v}\,dt\\
+&\rho\to\rho+(\PDy{t}{\rho}+v\PDy{r}{\rho})\,dt\\
+\end{align*}
+
+The total change in $r^2\rho\,dr$ must be zero
+\begin{align*}
+&2rv\rho+r^2(\PDy{t}{\rho}+v\PDy{r}{\rho})+r^2\rho\PDy{r}{v}=\\
+&\TDy{t}{\rho}+\rho\underbrace{(\PDy{r}{v}+\frac{2v}{r})}_{\div{v}=\div{(v\frac{\vec{r}}{r})}}=0&\intertext{In general case (when no sperical symmetry is assumed)}\\
+&\TDy{t}{\rho}+\rho\scap{\nabla}{v}=\PDy{t}{\rho}+\nabla\cdot(\rho\vec{v})=0&\intertext{infatti la trasformazione subita da un elemento di fluido in tempo $dt$:}\\
+&\vec{r}\to\vec{r}+\vec{v}\,dt&\intertext{ \'e associata alla trasformazione nell'elemento di volume infinitesimo}\\
+&dV\to\,dV(1+dt\,\scap{\nabla}{v})\quad (\frac{d\ln{dV}}{dt}=\scap{\nabla}{v})&\intertext{quindi in un fluido incompressibile the velocity is free of divergence $\div{v}=0$.}
+\end{align*}
+
+\subsubsection{Mass conservation: Eulerian and Lagrangian descriptions.}
+
+Nella descrizione Euleriana la conservazione della massa si esprime tramite l'equazione di continuit\'a:
+
+\begin{align*}
+&\PDy{t}{\rho}+\nabla\cdot(\rho\vec{v})=0&\intertext{$\rho\vec{v}$ is the current density of mass flow}\\
+&\frac{1}{\rho}\TDy{t}{\rho}=-\scap{\nabla}{v}\\
+&\frac{1}{V}\TDy{t}{V}=\scap{\nabla}{v}\\
+&\TDof{t}(\rho\,d\tau)=\TDof{t}(dm)=0
+\end{align*}
+
+Nella descrizione Lagrangiana \'e conveniente considerare l'espressione per la posizione di ogni elemento di massa $\vec{r}=\vec{r}(\vec{a},t)$ come una trasformazione continua di variabili (dot stands for Stokes derivative)
+
+\begin{align*}
+&\rho(\vec{a},t)J(\vec{r}[\vec{a},t])=\rho_0=\rho(\vec{a},t=0)\\
+&J(\vec{r}[\vec{a},t])=|\PDy{a_k}{x_j}|,\quad\Rightarrow\quad\dot{J}\\
+&=J\sum_i\PDy{a_i}{v_i}=J\scap{\nabla}{v}&\intertext{quindi, segue il risultato analogo a quello nella descrizione Euleriana:}\\
+&\frac{\dot{\rho}}{\rho}=-\scap{\nabla}{v}
+\end{align*}
+
+\subsection{Momentum conservation}
+
+Per i fluidi la conservazione della quantit\'a di moto \'e in sostanza la seconda legge di Newton: l'equazione risultante \'e l'equazione del moto. Nella descrizione Euleriana
+
+\begin{align*}
+&\rho\TDy{t}{\vec{v}}=-\nabla\cdot\ten{P}+\rho\vec{f}&\intertext{$\vec{v}$ is the fluid velocity (momentum per unit mass) and $\vec{f}$ is the total body or external force per unit mass and $\ten{P}$ is pressure tensor (symmetric for angular momentum conservation). Considero il caso di un corpo autogravitante:}\\
+&\rho\TDy{t}{\vec{v}}+\nabla P+\rho\nabla U=\rho(\PDy{t}{\vec{v}}+\vec{v}\cdot\nabla\vec{v})\\
+&+\nabla P+\rho\nabla U=0&\intertext{U is the gravitational potential energy per unit mass. Without $\rho\nabla U$ $\uparrow$ \'e l'equazione di Eulero.}
+\end{align*}
+
+The equation of motion may also be written in a form that doesn't require mass conservation
+\begin{align*}
+&\PDy{t}{(\rho\vec{v})}+\nabla\cdot\underbrace{(\rho\vec{v}\vec{v}+\ten{P})}_{\parbox{1cm}{Momentum flux density}}=\rho\vec{f}&\intertext{In absence of external force the rate of decreases of momentum (of volume density $\rho\vec{v}$) in a fixed volume of the fluid is equal to net outward rate of flow of momentum of flux $(\rho\vec{v}\vec{v}+\ten{P})\cdot\hat{n}$.}
+\end{align*}
+
+If stresses reduce to pure hydrostatic pressure $\ten{P}=P*Id$: the force due to stresses acting on a surface $dS\hat{n}$ is $-P\hat{n}\,dS$ that is a force acting along inward normal
+
+\begin{align*}
+&\rho\TDy{t}{\vec{v}}=-\nabla P+\rho\vec{f}&\intertext{$\uparrow$ is assumed mass conservation.}\\
+&\nabla P=\rho\vec{f}&\intertext{$\uparrow$ hydrostatic equilibrium in a static fluid $\vec{v}=0$.}\\
+&\PDy{t}{(\rho\vec{v})}+\nabla\cdot(\rho\vec{v}\vec{v}+PI)=\rho\vec{f}&\intertext{$\uparrow$  mass conservation is NOT assumed.}
+\end{align*}
+
+When turbolence, viscosity or large-scale magnetic field are present their effects can be described in terms of a pressure tensor.
+
+\subsection{Energy conservation}
+
+\subsubsection{Mechanical energy}
+
+\begin{align*}
+&\TDof{t}(\frac{1}{2}v^2)=-\frac{1}{\rho}\vec{v}\cdot(\nabla\cdot\ten{P})+\scap{f}{v}&\intu{say that the rate of increse of the kinetic energy per unit mass is equal to the rate at which the pressure gradient and body forces are doing work on the unit mass. It's obtained from momentum equation in Eulerian form $\downarrow$ diveded by $\rho$ and reduced to scalar multiplying both sides by $\vec{v}$}\\
+&\rho\TDy{t}{\vec{v}}=-\nabla\cdot\ten{P}+\rho\vec{f}
+\end{align*}
+
+We have an integral form: supposing $\vec{v}\cdot\ten{P}\cdot\,d\vec{S}$ is small ($\ten{P}$ small near the surface or ($\vec{v}\cdot\ten{P}$) is nearly perpendicular to $d\vec{S}$ as in steadly rotating star) and stresses reduce to pure pressure (and using mass conservation)
+\begin{align*}
+&\TDof{t}\int_M\frac{1}{2}v^2\,dm\\
+&=\int_M[P\TDof{t}(\frac{1}{\rho})]\,dm+\int_M\scap{f}{v}\,fm&\intertext{the first integral on the right side of $\uparrow$ is sum over all mass elements in entire system of the rate of \mblock{P\,dV(V=\frac{1}{\rho})} work that the material in each such mass element is doing on its surroundings.}
+\end{align*}
+
+\subsubsection{Thermal and Mechanical energy}
+
+Conservation of thermal and mechanical energy gives the rate of change of kinetic and internal energy of a unit mass of fluid as it moves about.
+
+Sia E l'energia interna, $\vec{f}$ la risultante delle forze esterne, e $\TDy{t}{q}$ il bilancio di calore lungo la linea di flusso, tutti per unit\'a di massa: uso il princio di conservazione della massa.
+
+\begin{align*}
+&\TDof{t}(\frac{1}{2}v^2+E)=-\frac{1}{\rho}\nabla\cdot(\ten{P}\cdot\vec{v})+\scap{f}{v}+\TDy{t}{q}&\intertext{l'equazione di Bernulli \'e un caso particolare di $\uparrow$.}
+\end{align*}
+
+Se non uso la conservazione della massa
+\begin{align*}
+&\PDof{t}(\rho E+\frac{1}{2}\rho v^2)\\
+&+\nabla\cdot(\rho E\vec{v}+\frac{1}{2}\rho v^2\vec{v}+\ten{P}\cdot\vec{v})=\\
+&=\rho\scap{f}{v}+\rho\TDy{t}{q}\\
+\end{align*}
+
+The quantity in parentheses is the energy flux vector
+\begin{equation*}
+\vec{j}_E=(\rho E\vec{v}+\frac{1}{2}\rho v^2\vec{v}+\ten{P}\cdot\vec{v})
+\end{equation*}
+\index{energy flux vector}
+since in absence of external forces $\vec{f}=0$ and of heat gains or losses $\TDy{t}{q}=0$ the rate of decreses of sum of internal and kinetic energy (of volume density $\rho E+\frac{1}{2}\rho v^2$) in a fixed volume is equal to total outward rate of flux of energy across the surface bounding fixed volume $\oint_S\,d\vec{S}=\vec{j}_E$. If stresses reduce to hydrostatic pressure
+\begin{align*}
+&\vec{j}_E=\rho\vec{v}(\frac{1}{2}v^2+E+\frac{P}{\rho})&\intertext{$E+\frac{P}{\rho}$ is the enthalpy per unit mass.}
+\end{align*}
+
+\subsubsection{Thermal energy alone}
+
+Generalized form of first principle of TD: dalla conservazione dell'energia meccanica e della somma dell'energia meccanica e termica segue
+\begin{align*}
+&\TDy{t}{E}=-\frac{1}{\rho}\ten{P}:(\nabla\vec{v})+\TDy{t}{q}&\intertext{if stresses reduce to pure pressures:}\\
+&\TDy{t}{q}=\TDy{t}{E}+P\TDof{t}(\frac{1}{\rho})=\TDy{t}{E}+P\TDy{t}{V}\label{eq:Eintconservation}
+\end{align*}
+
+\subsection{Internal Energy conservation, constant composition, equation of states and adibatic exponent}
+
+For astrophysical purpose 3 equivalent form of internal energy conservation are useful. The adiabatic exponents measure the response of system to adiabatic changes
+
+Con le ipotesi aggiuntive che la composizione chimica sia costante, che la pressione sia determinata da una funzione di stato determinata da una coppia di variabili termodinamiche tipo $P(\rho,T)$ e analogamente per energia interna $E(\rho,T)$:
+
+\begin{align*}
+&\TDy{t}{\ln{P}}=\Gamma_1\TDy{t}{\ln{\rho}}+\frac{\rho(\Gamma_3-1)}{P}\TDy{t}{q}\\
+&(=\Gamma_1\TDy{t}{\ln{\rho}}+\frac{\chi_T}{c_VT}\TDy{t}{q})\\
+&\TDy{t}{\ln{T}}=(\Gamma_3-1)\TDy{t}{\ln{\rho}}+\frac{1}{c_VT}\TDy{t}{q}\\
+&\TDy{t}{\ln{T}}=\frac{\Gamma_2-1}{\Gamma_2}\TDy{t}{\ln{P}}+\frac{1}{c_PT}\TDy{t}{q}&\intertext{$c_V$ e $c_P$ sono i colari specivici per unit\'a di massa, }\\
+&\chi_T=(\PDly{T}{P})_{\rho},\quad \chi_{\rho}=(\PDly{\rho}{P})_{T}&\intertext{gli esponenti adiabatici}\\
+&\Gamma_1=(\TDly{\rho}{P})_{Ad},\ \Gamma_3-1=(\TDly{\rho}{T})_{Ad},\\ &\frac{\Gamma_2-1}{\Gamma_2}=(\TDly{P}{T})_{Ad}=\frac{\Gamma_3-1}{\Gamma_1}&\intertext{da cui seguono le relazioni:}\\
+&\Gamma_1=\chi_{\rho}+\chi_T(\Gamma_3-1),\\ &\gamma=\frac{c_P}{c_V}=\frac{\Gamma_1}{\chi_{\rho}},\ \Gamma_3-1=\frac{P\chi_T}{\rho c_VT}&\intertext{la terza di $\uparrow$ \' equivalente alla cos\'i detta relazione di reciprocit\'a}\\
+&(\PDly{\rho}{E})_T=\frac{P}{\rho E}(1-\chi_T)&\intertext{Vedi Landau statistical Physics intorno al $\S16$.}
+\end{align*}
+
+La condizione che la pressione sia definita dalla funzione termodinamica equivale a trascurare la viscosit\'a radiativa e molecolare, i campi magnetici su larga scala e le turbolenze.
+
+
+\section{Transport}
+
+\subsection{scalar quantity}
+
+The mean free path of a particle is $l_c$: if Q depends only on z we consider two surfaces at $z-\frac{l_c}{2}$ and $z+\frac{l_c}{2}$.
+
+\begin{align*}
+&Q(z+\frac{l_c}{2})-Q(z-\frac{l_c}{2})\approx l_c\PDy{z}{Q}&\intu{net quantity of Q transfered (collisional processes), and vice versa.}\\
+&F_Q=nv_T[Q(z-\frac{l_c}{2})-Q(z+\frac{l_c}{2})]\\
+&\approx-nv_Tl_c\PDy{z}{Q}\\
+&\vec{F}_Q=-nv_Tl_c\nabla Q&\intu{$l_c$ gives order of magnitude: precise numerical coefficient have to take in account for velocity distribution.}\\
+&\TDof{t}\int_V\,dVQ=-\int_S\,dS\scap{n}{F_Q}\\
+&=-\int_V\,dV\scap{\nabla}{F}_Q&\intu{no sources in the volume}\\
+&\rho\TDy{t}{Q}=\nabla\cdot(\rho v_Tl_C\nabla Q)&\intertext{mass is conserved so Lagrangian derivative of $\rho\,dV$ vanishes.}
+\end{align*}
+
+\subsection{Heat}
+
+\begin{align*}
+&Q=c_PT&\intu{thermal energy per unit mass}\\
+&\chi=v_Tl_C&\intu{heat flows to the cooler parts: heat transport coefficient or heat diffusivity}\\
+&\rho\TDy{t}{Q}=\nabla\cdot(\rho\chi\nabla (c_PT))+S&\intu{heat transport equation S is a source or sink: production rate per unit volume}\\
+&\rho c_P\TDy{t}{T}=\kappa \nabla^2T+S&\intu{$\kappa=\rho\chi c_P$, $\rho$, $\chi$, $c_P$ are constant.}\\
+\end{align*}
+
+The heat transport equation  must be supplemented with boundary conditions at surface (radiative loss) and continuity condition across sharp transition (in planets: core mantle): with energy source at the transition (with dimension of flux) we expect a jump in the flux $\rho\chi\hat{n}\cdot\nabla(c_PT)$ so $[\rho\chi\hat{n}\cdot\nabla(c_PT)]=F$.
+
+If $T(z,t)$ is the only variable and fluid is at rest
+\begin{align*}
+&\PDy{t}{T}=\chi\PtwoDy{z}{T}&\intu{parabolic equation. An initial spike spreads after time t over distance $\sqrt{\chi t}$ and there is no wave propagation}\\
+&T(z,t)=\frac{K}{2\sqrt{\pi\chi t}}\exp{-\frac{z^2}{4\chi t}}\\
+&\lim_{t\to0}T(z,t)=K\delta(z)&\intertext{total thermal energy is conserved $\propto\int\,dz T=K$}
+\end{align*}
+
+\subsection{Momentum: viscosity.}
+
+\begin{align*}
+&Q=m_{mol}v_x(z)&\intertext{the sheared velocity field is smoothed out}\\
+&\eta=\rho v_Tl_C&\intu{viscosity coefficient}\\
+&\rho(\PDy{t}{\vec{v}}+\vec{v}\cdot\nabla\vec{v})+\nabla P+\rho\nabla U\\
+&=\eta[\nabla^2\vec{v}+\frac{1}{3}\nabla(\scap{\nabla}{v})]&\intd{for incompressible flow $\scap{\nabla}{v}=0$ becomes}\\
+&\rho(\PDy{t}{\vec{v}}+\vec{v}\cdot\nabla\vec{v})+\nabla P+\rho\nabla U=\eta\nabla^2\vec{v}&\intu{Navier-Stokes equation, $\eta/\rho$ is the kinematic viscosity.}
+\end{align*}
+
+Viscosity results in dissipation, the kinetic energy of the fluid motion is transformed into heat and should be accounted for in heat transfer equation
+\begin{align*}
+&E{Kin}=\frac{1}{2}\int\,dV\rho v^2\\
+&\TDy{t}{E{Kin}}=-\frac{1}{2}\int\,dVq_{ij}(\PDy{r_j}{v_i}+\PDy{r_i}{v_j})&\intertext{$q_{ij}$ is the viscous stress tensor depending on velocity and its derivatives respect spatial coordinates}\\
+&\TDy{t}{E{Kin}}=-\frac{\eta}{2}\int\,dV(\PDy{r_j}{v_i}+\PDy{r_i}{v_j})^2
+\end{align*}
+
+The relevance of viscosity is described by Reynold number\index{Reynold number} 
+\begin{align*}
+Re=\frac{\rho Lv}{\eta}&\intertext{L is a macroscopic characteristic length, v is a typical velocity of the flow}
+\end{align*}
+
+
+\section{Partially/totally ionized gas.}
+
+At sufficient high temperatures and low densities (possibly under strong UV radiation from the sun) the gas may becomes partially or totally ionized. When the number of particles in square cube $\lambda_D$ is large and for scales larger than $\lambda_D$ approximate charge neutrality holds and we can describe the gas as a single neutral fluid.
+
+Relative motions of electrons and ions produce electric currents and magnetic fields.
+
+Astrophysical fluids are at least partially ionized  thus electromagnetic forces can be more important for macroscopic dynamics: Magneto-hydrodynamics is the name used when we deal with continuum mechanics for charged matter otherwise plasma physics.
+
+\section{Maxwell's equations}
+
+At microscopic level the field $\vec{E},\vec{B}$ are determined by charge densities $\sigma_c$ and current densities $\vec{J}$
+\begin{align*}
+&\scap{\nabla}{E}=4\pi\rho_c\\
+&\vecp{\nabla}{B}-\frac{1}{c}\PDy{t}{\vec{E}}=\frac{4\pi}{c}\vec{J}&\intertext{Gaussian Units}
+\end{align*}
+
+and Faraday's law, absence of magnetic monopoles
+
+\begin{align*}
+&\vecp{\nabla}{B}+\frac{1}{c}\PDy{t}{\vec{B}}=0\\
+&\scap{\nabla}{B}=0
+\end{align*}
+
+An arbitrary EM field tha fulfils the continuity equation
+\begin{equation*}
+\PDy{t}{\rho_c}+\scap{\nabla}{J}=0
+\end{equation*}
+can be propagated in time.
+
+At macroscopic level in presence of matter the electric field is affected also by polarization and similarly magnetic fields
+\begin{align*}
+&\scap{\nabla}{D}=4\pi\rho_c\\
+&\vecp{\nabla}{H}-\frac{1}{c}\PDy{t}{\vec{D}}=\frac{4\pi}{c}\vec{J}\\
+&\vecp{\nabla}{B}+\frac{1}{c}\PDy{t}{\vec{B}}=0\\
+&\scap{\nabla}{B}=0&\intertext{Gaussian Units}
+\end{align*}
+
+We need constitutive relations between $\vec{B}$, $\vec{H}$ and $\vec{E}$, $\vec{D}$: when fields are weak and matter isotropic
+\begin{align*}
+&\vec{B}=\mu\vec{H}\\
+&\vec{D}=\epsilon\vec{E}
+\end{align*}
+In normal modes of oscillation the electric and magnetic response depends on the mode: the constitutive equations are expressed in term of Fourier component of the field.
+
+\section{Magneto-hydrodynamics}
+
+\subsection{Equation for boh fluid}
+
+The equation of motion (confronta con cox, bertotti, Dalsgaard\index{da fare: eq moto})
+
+\begin{align*}
+&\rho\PDy{t}{\vec{v}}+\nabla P+\rho\nabla U\\
+&=\rho(\PDy{t}{\vec{v}}+\scap{v}{\nabla\vec{v}})+\nabla P+\rho\nabla U=0&\intertext{without the term $\rho\nabla U$ is called the Euler equation}
+\end{align*}
+
+\subsection{Electrically conductive fluid}
+
+In a moving conductor Ohm's law must be modified
+\begin{align*}
+&\vec{J}=\sigma(\vec{E}+\frac{1}{c}\vecp{v}{B})&\intertext{In presence of factor that destroy the isotropy of the fluid the conductivity is a tensor. When the conductivity is large enough that we can replace the equation $\uparrow$ with:}\\
+&\vec{E}+\frac{1}{c}\vecp{v}{B}=0
+\end{align*}
+
+In electrically conductive fluid the magnetic force must be added to EOM. A charge q moving with velocity $\vec{u}$ in a magnetic field $\vec{B}$ suffers a Lorentz force $\frac{q}{c}\vecp{u}{B}$: for all charged particles in an infinitesimal volume we get $\sum q\vecp{u}{B}=\vecp{J}{B}\,dV$. Aggiungo il contributo della forza di Lorentz per unit\'a di volume all'equazione di conservazione della quantit\'a di moto:
+\begin{equation*}
+\rho\TDy{t}{\vec{v}}+\nabla P+\rho\nabla U=\frac{1}{c}\vecp{J}{B}
+\end{equation*}
+
+La pressione deve essere espressa in funzione della densit\'a o direttamente tramite una dipendenza politropica o indirettamente tramite l'equazione di stato e del bilancio energetico.
+
+Since electric and magnetic fields are created by motions of fluid at speed $v\ll c$: their time and space variations are related by \mblock{\PDof{t}\approx v\nabla\ll c\nabla} and we have the Ampere law in simpler form neglecting displacement current
+\begin{align*}
+&c\vecp{\nabla}{B}=4\pi\vec{J}&\intertext{$\uparrow$ current density is solenoidal and net charges are neglected. This is in agreement with general property of plasma in which there are no charge fluctuations in volumes much larger than $\lambda_D$. The small charge density can be recovered taking the divergence of Ohm's law $\downarrow$}\\
+&\vec{J}=\sigma(\vec{E}+\frac{1}{c}\vecp{v}{B})
+\end{align*}
+
+This approcimation cannot deal with electromagnetic waves for wich E and B are of same order of magnitude.
+
+\subsection{Magnetic stress tensor}
+
+Scrivo la forza magnetica per unit\'a di volume
+
+\begin{align*}
+&\vec{f}=\frac{1}{c}\vecp{J}{B}+\div{-\frac{B^2}{8\pi}\ten{1}+\frac{\ten{B}}{4\pi}}\\
+&=\div{\ten{{P^M}}}&\intertext{$\uparrow$ ho usato espressione}\\
+&(\nabla\wedge\vec{B})\wedge\vec{B}
+\end{align*}
+\index{(C) espressione magnetic stress tensor}
+Let's illustrate the signifiance of magnetic stress tensor with two examples:
+
+\begin{itemize*}
+\item Magnetic field along z but with arbitrary intensity $B(x,y)$.
+
+$\ten{{P^M}}$ is a scalar and a flow in $(x,y)$ plane is governed by total pressure
+
+\begin{align*}
+&P+\frac{B^2}{8\pi}&\intertext{where the latter term $\frac{B^2}{8\pi}$ is the magnetic pressure that has the effect of pushing the flow away from high intensity regions.}
+\end{align*}
+
+This happens , ie, in the interaction between supersonic solar wind and Earth's dipole field which acts like an obstacle with the magnetic pressure giving rise to a shock front.
+
+The magnetic pressure prevail over the fluid pressure P when the ratio $\beta=\frac{8\pi P}{B^2}$ is small.
+
+\item B has uniform intensity but its direction $\hat{n}$ is not.
+
+Only potive component along $\hat{n}\hat{n}$ is relevant
+
+Transversal waves with Alfv\'en speed 
+
+\begin{align*}
+&V_A=\sqrt{\frac{B^2}{4\pi\rho}}
+\end{align*}
+
+\end{itemize*}
+
+\section{The induction equation. Magnetic diffusion coefficient}
+
+\subsection{Induction equation}
+
+When conductivity $\sigma$ is constant
+\begin{align*}
+&\PDy{t}{\vec{B}}=\nabla\wedge(\vec{v}\wedge\vec{B})+\frac{c^2}{4\pi\sigma}\nabla^2\vec{B}\\
+&\lambda=\frac{c^2}{4\pi\sigma}&\intertext{$\uparrow$ is the magnetic diffusion coefficient. The analog of viscosity. In a medium at rest ($\vec{v}=0$) the induction equation is equivalent to heat equation with conductivity $\lambda$: an initial magnetic field spike after a time t spread over a distance $c\sqrt{\lambda t}$.}
+\end{align*}
+ 
+\subsection{Infinite conductivity limit}
+
+In a perfectly conductive fluid holds
+\begin{align*}
+&\vec{E}+\frac{1}{c}\vec{v}\wedge\vec{B}=0&\intertext{contrary to Newtonian dynamics in this case the electromagnetic field determines the component of the velocity orthogonal to the line of force not its time derivative}\\
+&\vec{v}_{\perp}=c\frac{\vecp{E}{B}}{B^2}
+\end{align*}
+La componente lungo $\vec{B}$ della velocit\'a obbedisce all'equazione della conservazione dell'impulso. Dalla legge di Ohm risulta che il campo elettrico e magnetico sono ortogonali, il campo elettrico lungo le linee di forza \'e annullato dal moto delle cariche. 
+
+\subsection{MHD equation: infinite conductivity, no gravity, no viscosity.}
+
+\begin{align*}
+&\rho[\PDy{t}{\vec{v}}+(\scap{v}{\nabla})\vec{v}]+\nabla P=\frac{1}{4\pi}(\nabla\wedge\vec{B})\wedge\vec{B}\\
+&\PDy{t}{\rho}+\nabla\cdot(\rho\vec{v})=0\\
+&\PDy{t}{\vec{B}}=\nabla\wedge(\vec{v}\wedge\vec{B})
+\end{align*}
+
+
+\section{Conservation of magnetism and vorticity (???).}
+
+\subsection{Rate changes surface dragged along flux}
+
+\begin{align*}
+&\TDof{t}(d\vec{r})=(d\vec{r}\cdot\nabla)\vec{v}\\
+&\TDof{t}(dS_i)=dS_i\scap{\nabla}{v}-dS_j\PDy{r^i}{v^j}\\
+&dV=d\vec{S}\cdot\,d\vec{r}=\frac{dm}{\rho}
+\end{align*}
+
+\subsection{Conservation magnetic flux and circulation}
+
+\begin{align*}
+&\TDy{t}{\vec{B}}=\PDy{t}{\vec{B}}+(\scap{v}{\nabla})\vec{B}\\
+&=(\scap{v}{\nabla})\vec{v}-\vec{B}(\scap{\nabla}{v})+\frac{c^2}{4\pi\sigma}\nabla^2\vec{B}&\intu{Lagrangian change in magnetic field}\\
+&\TDof{t}(\vec{B}\cdot\,d\vec{S})=\frac{c^2}{4\pi\sigma}\,d\vec{S}\cdot\nabla^2\vec{B}&\intu{Lagrangian change in magnetic flux through $d\vec{S}$}
+\end{align*}
+
+\subsection{Frozen flux and freezing theorem}
+
+When conductivity is infinite the flux through a surface attached to the fluid is constant and dragged along with the fluid (Alfv\'en's frozen flux theorem). In the collapse of a cosmic body of size R, B increases as $1/R^2$: this can produces large amplification of magnetic field. Similarly when a charged particle moves in a slowly varying magnetic field the flux embraced in a Larmor gyration remains almost constant.
+
+Freezing theorem (cosmic physics/solar wind)
+\begin{align*}
+&\TDof{t}(d\vecp{r}{B})=-\vec{B}\wedge(\,d\scap{r}{\nabla})\vec{v}+\\
+&+\,d\vec{r}\wedge[(\scap{B}{\nabla})\vec{v}-\vec{B}(\scap{\nabla}{v})]\\
+&+\frac{c^2}{4\pi\sigma}\,d\vec{r}\wedge\nabla^2\vec{B}&\intertext{If initially $\vec{r}$ and $\vec{r}+d\vec{r}$ lie on same line of force so that $d\vecp{r}{B}=0$ ($d\vec{r}$ and $\vec{B}$ being parallel) then the first two terms on rhs of $\uparrow$ cancel each other.}
+\end{align*}
+
+In infinitely conductive plasma the condition $d\vecp{r}{B}=0$ holds forever: a line of force is tied to the fluid element lying on it.
+
+\subsection{Kelvin vorticity theorem}
+Negligible viscosity
+
+\begin{align*}
+&\TDof{t}\int_s\,d\vec{S}\cdot(\vecp{\nabla}{v})=0
+\end{align*}
+
+In a barotropic inviscid fluid the vorticity lines are anchored to the matter.
+
+
+
+\stopcontents[chapters]
+
+\end{document}

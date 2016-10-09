@@ -1,0 +1,32 @@
+\documentclass[../main.tex]{subfiles}
+%http://soho.nascom.nasa.gov/publications/CDROM1/papers/rhodes/index.html
+
+\begin{document}
+
+\pgfplotstableread{MDImedium-l144.txt}{\MDImedium}
+
+\pgfkeys{/pgf/fpu=true}
+
+\pgfmathparse{(274)}
+\edef\gravitysurface{\pgfmathresult}    % gravity acceleration at sun's surface in m/s^2
+
+\pgfmathparse{(696)*(10)^(6)} %sun's radius in meter
+\edef\radiusS{\pgfmathresult}
+\pgfkeys{/pgf/fpu=false}
+
+
+\begin{tikzpicture}
+\begin{axis}[xmin=0,xmax=310,ymin=1000,ymax=5200,
+scale only axis,
+width=0.7\textwidth,
+height=0.7\textheight
+]
+\addplot [black,only marks,
+        error bars/.cd, y dir=both] table [x={l}, y={nu},y error={sigma}] {\MDImedium};
+%\addplot[color=red] gnuplot[id=ridge] {sqrt((1+1/2)*(\gravitysurface)*(x)/(\radiusS))};
+
+\end{axis}
+\end{tikzpicture}
+
+
+\end{document}

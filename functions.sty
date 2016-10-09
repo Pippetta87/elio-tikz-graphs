@@ -1,0 +1,338 @@
+\ProvidesPackage{functions}
+
+%%% AAAA
+\newcommand{\abc}[1]{\xrightarrow{#1}} %% Limits with rightarrow condition
+\newcommand{\abl}[2]{\xrightarrow{#1\rightarrow#2}} %% Limits with rightarrow and arrow
+\newcommand{\angstrom}{\textup{\AA}} % Angstrom mathmode
+
+
+%%% BBBBB
+\renewcommand{\bf}{\textbf}
+\newcommand{\cc}[1]{\overline{#1}} %%%% bar overline conjugate
+\newcommand{\braN}{\bra{\Pneutron}} %%bra neutron
+\newcommand{\braP}{\bra{\Pproton}}   %%bra proton
+\newcommand{\bt}[1]{\epsilon_{#1}} %% Bianchi tensor
+\newcommand{\bbar}{{\raisebox{3.5px}{$-$}\mkern -9.5mu b}} %% b bar
+\newcommand{\bm}{\beta^-} %%decadimento beta meno
+\newcommand{\bp}{\beta^+} %%decadimento beta piu
+\newcommand{\bv}{Brunt-V\:ais\:al\:a}
+
+%%%%%% CCCCCCCCCCCCCCCCCCCCCCC
+\newcommand{\cha}{Chandrasekhar}
+\newcommand{\chapref}[2]{\chapter{#1}
+\begin{refsection}
+#2
+\printbibliography[heading=subbibliography]
+\end{refsection}}
+
+%%% DDDD
+\newcommand{\dal}[1]{\nabla^2-\frac{1}{#1^2}\frac{\partial^2}{\partial t^2}}   %%% operatore di d'alambert: velocita da impostare. compatto
+\newcommand{\dalof}[2]{\nabla^2#2-\frac{1}{#1^2}\frac{\partial^2#2}{\partial t^2}}   %%% operatore di d'alambert: velocita da impostare. Esteso
+\newcommand{\decay}[2]{\xrightarrow[#1]{#2}} %% Limits with rightarrow condition
+\newcommand{\decaya}[1]{\xrightarrow[#1]{\alpha}} %% Limits with rightarrow condition
+\newcommand{\decaybp}[1]{\xrightarrow[#1]{\beta^+}} %% Limits with rightarrow condition
+\newcommand{\decaybm}[1]{\xrightarrow[#1]{\beta^-}} %% Limits with rightarrow condition
+\newcommand*{\ditto}{---\textquotedbl---} %% ditto same as above
+\newcommand*\DAlambert{\mathop{}\!\mathbin\Box}
+
+\newcommand{\PDof}[1]{\frac{\partial}{\partial #1}} %%%%Derivative of d/dx()
+\newcommand{\TDof}[1]{\frac{d}{d #1}}
+\newcommand{\PtwoDof}[1]{\frac{\partial^2}{{\partial #1}^2}}
+\newcommand{\TtwoDof}[1]{\frac{d^2}{{d #1}^2}}
+\newcommand{\PxDof}[2]{\frac{\partial^{#2}}{{\partial #1}^{#2}}}
+\newcommand{\TxDof}[2]{\frac{d^{#2}}{{d #1}^{#2}}}
+
+\newcommand{\PDy}[2]{\frac{\partial #2}{\partial #1}} %%% derivative dy/dx
+\newcommand{\TDy}[2]{\frac{d #2}{d #1}}
+\newcommand{\PtwoDy}[2]{\frac{\partial^2 #2}{{\partial #1}^2}}
+\newcommand{\TtwoDy}[2]{\frac{d^2 #2}{{d #1}^2}}
+\newcommand{\PxDy}[3]{\frac{\partial^{#2} #3}{{\partial #1}^{#2}}}
+\newcommand{\TxDy}[3]{\frac{d^{#2}#3}{{d #1}^{#2}}}
+
+\newcommand{\PDly}[2]{\frac{\partial \ln{#2}}{\partial \ln{#1}}} %%% derivative dlny/dlnx
+\newcommand{\TDly}[2]{\frac{d \ln{#2}}{d \ln{#1}}}
+
+\newcommand{\Dcvar}[2]{(#1)_{#2}}
+\newcommand{\Devat}[2]{#1|_{#2}}
+%\renewcommand{\div}[1]{\scap{\nabla}{#1}}
+\newcommand{\densityscale}{H_{\rho}}
+
+
+%%%%   EEEEEEEEEE
+
+\newcommand{\ev}[1]{\colorbox{yellow}{$#1$}} %% colorbox
+\newcommand{\evt}[1]{\colorbox{yellow}{\noindent\begin{minipage}{\widthof{#1}}#1\end{minipage}}} %%colorbox \text{}
+\newcommand{\exv}[1]{\langle #1 \rangle} %%colorbox \text{}
+\renewcommand{\exp}[1]{e^{#1}}  %Esponenziale
+\newcommand{\ec}{\epsilon} %% cattura elettronica
+\newcommand{\ER}{E_{\text{RYD}}} %% E_ryd
+\newcommand{\Evar}[1]{#1'} %%% Variazione Euleriana
+\newcommand{\expy}[1]{^{#1}} %%  Esponente >1 char
+
+%%% FFFFFFFFF
+
+
+%%%%%% GGGGGGGGGGGGGGGGGGGGGG
+
+\newcommand{\gsun}{g_{\odot}} %% raggio solare
+\newcommand{\gad}{\gamma_{Ad}}
+\newcommand{\Gad}{\Gamma_{Ad}}
+
+%%% HHHHHHHHH
+
+\newcommand{\hr}{Hertzsprung-Russel}
+
+
+%%%%%   IIIIIIIIIIII
+\newcommand\irregularcircle[2]{% radius, irregularity		Irregular shape
+  \pgfextra {\pgfmathsetmacro\len{(#1)+rand*(#2)}}
+  +(0:\len pt)
+  \foreach \a in {10,20,...,350}{
+    \pgfextra {\pgfmathsetmacro\len{(#1)+rand*(#2)}}
+    -- +(\a:\len pt)
+  } -- cycle
+}
+\newcommand{\isw}[2]{\frac{e^{-i#1#2}}{#2}} % Ingoing spherical wave
+\newcommand{\intsinf}{\int_{-\infty}^{+\infty}} %% integrale da -infinito a +infinito
+\newcommand{\intzi}{\int_{0}^{+\infty}}  %% integrale da 0 a +infinito
+\newcommand{\ints}[1]{\int_{-#1}^{+#1}}  %% integrale da -a a +a
+\newcommand{\inte}[2]{\int_{#1}^{#2}}  %% integrale da A a B
+\newcommand{\Id}[1]{\mathds{1}_{#1}}  %% Matrice unità di dimensione=parametro
+\newcommand{\intu}[1]{\intertext{$\uparrow$ #1}} %% intertext freccia sopra
+\newcommand{\intd}[1]{\intertext{$\downarrow$ #1}} %% intertext freccia sotto
+
+%%%%%%%%%%%JJJJJJJJJJJJJJJJJJ
+\newcommand{\jp}{J^{\Pi}}
+
+%%% KKKKKKK
+
+\newcommand{\kh}{kelvin-Helmholtz}
+
+%%%%%    LLLLLLLL
+%\newcommand{\lambdabar}{{\mkern0.75mu\mathchar '26\mkern -9.75mu\lambda}} %%Lambda bar
+\newcommand{\lbt}[2]{$\left\{\begin{array}{l}#1\\#2\\ \end{array}\right.$} % parentesi grafa a sinistra 2 linee
+\newcommand{\lu}{\mathcal{L}}
+\newcommand*\Laplace{\mathop{}\!\mathbin\bigtriangleup}
+\newcommand{\LaplaceSC}{\frac{1}{r^2}\PDof{r}(r^2\PDof{r})+\frac{1}{r^2\sin{\phi}^2}\PtwoDof{\theta}+\frac{1}{r^2\sin{\phi}}\PDof{\phi}(\sin{\phi}\PDof{\phi})}
+\newcommand{\Lvar}[1]{\delta #1}
+\newcommand{\lif}{Lifshitz}
+
+%%% MMMMMMMMMMMMMMM
+\newcommand{\msun}{M_{\odot}} %% massa solare
+\newcommand{\Mcs}{\frac{MeV}{c^2}} %% massa solare
+\newcommand{\Mif}{M_{if}}
+\newcommand{\mblock}[1]{ \allowbreak ${#1}$ }
+
+
+%%%%% NNNNNNNNNNNNNNNN
+\newcommand{\nad}{\nabla_{Ad}}
+\newcommand{\nTP}{(\PDy{\ln{P}}{\ln{T}})_s}
+\newcommand{\nablaTact}{\nabla}
+\newcommand{\nablaTacte}{(\TDly{P}{T})_s}
+\newcommand{\nel}{\nabla_e}
+\newcommand{\nele}{(\TDly{P}{T})_e}
+\newcommand{\nmu}{\nabla_{\mu}}
+\newcommand{\nmue}{(\TDly{P}{\mu})_s}
+\newcommand{\nrad}{\nabla_{rad}}
+
+
+%%% OOOOOOOOOOOO
+\newcommand{\osw}[2]{\frac{e^{i#1#2}}{#2}} %%% Outgoing spherical wave
+
+%%%%PPPPPPPPPPP
+\newcommand{\pw}[2]{e^{i\vec{#1}\cdot\vec{#2}}} % Onda piana
+\newcommand{\psiN}[1]{\psi_1(\vec{x_1}),\ldots,\psi_{#1}(\vec{x_{#1}})} % Funzione d'onda di un sistema di N particelle
+\newcommand{\psiNP}[1]{\psi_1(\vec{-x_1}),\ldots,\psi_{#1}(\vec{-x_{#1}})} % Funzione d'onda di un sistema di N particelle sotto inversione di parità
+\newcommand{\PO}{\mathcal{P}}  %%% Operatore parità
+\newcommand{\paf}[3]{{#1}^{\frac{#2}{#3}}}  % (a)^(b/c)
+\newcommand{\pcsun}{P_{\odot}^c} %% pressione centrale del sole 
+
+
+%%%%RRRRRRRRRRRRRR
+\newcommand{\rbt}[2]{$\left.\begin{array}{l}#1\\#2\\ \end{array}\right\}$} % parentesi grafa a destra 2 linee
+\newcommand{\req}[1]{~\ref{eq:#1}} %% ~\ref{eq:ref}
+\newcommand{\Ra}{$\alpha$ } %% alpha
+\newcommand{\Rb}{$\beta$ } %% beta
+\newcommand{\rsun}{R_{\odot}} %% raggio solare
+\newcommand{\rhosun}{\overline{\rho}_{\odot}} %% densita media solare
+\newcommand{\rhosunc}{\rho_{\odot}^c} %% densita centro solare
+\newcommand{\risp}{rispettivamente}
+
+\makeatletter%%Redeclaremathoperator
+\newcommand\RedeclareMathOperator{%
+  \@ifstar{\def\rmo@s{m}\rmo@redeclare}{\def\rmo@s{o}\rmo@redeclare}%
+}
+% this is taken from \renew@command
+\newcommand\rmo@redeclare[2]{%
+  \begingroup \escapechar\m@ne\xdef\@gtempa{{\string#1}}\endgroup
+  \expandafter\@ifundefined\@gtempa
+     {\@latex@error{\noexpand#1undefined}\@ehc}%
+     \relax
+  \expandafter\rmo@declmathop\rmo@s{#1}{#2}}
+% This is just \@declmathop without \@ifdefinable
+\newcommand\rmo@declmathop[3]{%
+  \DeclareRobustCommand{#2}{\qopname\newmcodes@#1{#3}}%
+}
+\@onlypreamble\RedeclareMathOperator
+\makeatother %%%Redeclaremathoperator
+\newcommand{\gasconstant}{\mathcal{R}}
+
+
+%%%%% SSSSSSSSSSSSS
+%% Matrici di Pauli
+\newcommand{\sigmax}{$\begin{pmatrix}0&1\\1&0\\\end{pmatrix}$}   % matrice pauli x
+\newcommand{\sigmay}{$\begin{pmatrix}0&i\\-i&0\\\end{pmatrix}$}   % matrice pauli x
+\newcommand{\sigmaz}{$\begin{pmatrix}1&0\\0&-1\\\end{pmatrix}$}   % matrice pauli x
+
+\newcommand{\singleti}{\ket{\frac{1}{2},\frac{1}{2};S=0,S_z=0}} 
+\newcommand{\singlete}[2]{\frac{\ket{+}_{#1}\ket{-}_{#2}-\ket{-}_{#1}\ket{+}–{#2}}{\sqrt{2}}}
+\newcommand{\vpm}[1]{\vec{\sigma_{#1}}} %%% Vector pauli matrix
+
+\newcommand{\scap}[2]{\vec{#1}\cdot\vec{#2}}  %%% prodotto scalare
+\newcommand{\scapflex}[4]{#1{\vec{#2}}\cdot#3{\vec{#4}}}  %%% prodotto scalare comandi applicati ai vettori
+
+\newcommand{\scapq}[2]{{#1}_{\mu}{#2}^{\mu}}  %%% prodotto scalare quadrivettori
+\newcommand{\sphag}{Y_{lm}(\theta,\phi)}  %%% Sperical Harmonics argument l m
+\newcommand{\spha}[4]{Y_{#1,#2}(#3,#4)}  %%% Sperical Harmonics argument l m
+\newcommand{\sumzi}[1]{\sum_{#1=0}^{\infty}}  %%% Sum da 0 a infty con argomento
+\newcommand{\sumft}[2]{\sum_{#1}^{#2}}  %%% Sum da 1 a 2 
+
+\newcommand{\sci}[1]{\ 10^{#1}\ }  %%% 10^{arg1}
+\newcommand{\sch}{Schwarzschild}
+\newcommand{\subsecref}[2]{\subsection{#1}\begin{refsection}
+#2
+\printbibliography[heading=subbibliography]
+\end{refsection}}
+
+
+%%% TTTTT
+%\renewcommand\thesection{\arabic{chapter}.\arabic{section}}  %%% subsection refernece
+%\renewcommand\thesubsection{\Roman{subsection}}
+%\makeatletter
+%\renewcommand\p@subsection{\thesection.}
+%\makeatother         										%%%%%
+
+\newcommand{\PartialToc}{
+\vspace*{1pc}\hrule\vspace*{0.5pc}% toc at beginning chapter
+\startcontents[chapters]\vbox{\bf\Large 
+\hypertarget{outline\thechapter}{\noindent Outline Cap. \thechapter}}
+\printcontents[chapters]{}{1}{\setcounter{tocdepth}{3}}\vspace*{0.5pc}\hrule
+
+
+\lfoot{\begingroup
+\hypersetup{allcolors=blue}
+\hyperlink{outline\thechapter}{Toc.\thechapter} Pg: \thepage (\thepart)Sec.\thesection,\hyperlink{toc}{Main Toc}\endgroup
+}
+
+}
+
+\newcommand{\tikzmark}[1]{\tikz[overlay,remember picture] \node (#1) {};}
+
+\newcommand{\thalf}{t_{\frac{1}{2}}}
+%\newcommand{\tref}[1]{~\ref{eq:#1}}  %%% Operatore inversione temporale
+\newcommand{\tbf}[1]{\textbf{#1}\index{#1}}  %%% Operatore inversione temporale
+\newcommand{\TO}{\mathcal{T}}  %%% Operatore inversione temporale
+\newcommand{\tsv}[2]{\begin{pmatrix}#1\\#2\\\end{pmatrix}}  % vettore stato sistema 2 stati
+\newcommand{\threesv}[3]{\begin{pmatrix}#1\\#2\\#3\end{pmatrix}}  % vettore stato sistema 3 stati
+\newcommand{\txtrm}[1]{\begin{pmatrix}\cos{#1}&\sin{#1}\\-\sin{#1}&\cos{#1}\\\end{pmatrix}} % matrice rotazione 2x2
+
+\newcommand{\tripleti}[1]{\ket{\frac{1}{2},\frac{1}{2};S=1,S_z=#1}}
+\newcommand{\triplet}[2]{\left\{\begin{array}{c}\ket{+}_{#1}\ket{+}_{#2}\\\frac{\ket{+}_{#1}\ket{-}_{#2}+\ket{-}_{#1}\ket{+}_{#2}}{\sqrt{2}}\\\ket{-}_{#1}\ket{-}_{#2}\end{array}\right.}
+
+\newcommand{\tripletz}[3]{\ifnum#1=-1 \ket{-}_{#2}\ket{-}_{#3} \else\ifnum#1=0 \frac{\ket{+}_{#2}\ket{-}_{#3}+\ket{-}_{#2}\ket{+}_{#3}}{\sqrt{2}} \else \ket{+}_{#2}\ket{+}_{#3}\fi\fi}
+
+\newcommand{\tpc}[5]{%%%           Tikz plot caption
+\captionsetup[figure]{format=plain,skip=0pt,indention=0pt}
+{
+\begin{figure}[#1]
+\centering
+\begin{tikzpicture}{#2}
+\node at #3 {\parbox{#4}{\captionof{figure}{#5}}};   %\label{fig:myfig}\label{fig:~\ref{fig:myfig}}}};
+\end{tikzpicture}
+\end{figure}
+}\clearpage
+}                   %%%%%% 
+
+\newcommand{\tsun}{\overline{T}_{\odot}}  %% T solare media
+\newcommand{\tsunc}{T_{\odot}^c} %% T centro sole
+\newcommand{\tsuns}{T^S_{\odot}} % temperatura superficie sole
+\newcommand{\lsun}{\mathcal{L}_{\odot}} % Luminosita sole}
+\newcommand{\tkh}{\tau_{KH}} % tempo di Kelvin Helmholtz
+\newcommand{\thydro}{\tau_{Hyd}} % tempo di idrodinamic
+\newcommand{\tff}{\tau_{FF}} % tempo di Free Fall
+\newcommand{\ten}[1]{\tensor{#1}{_\cdot_\cdot}}
+%\def\shrinkage{2.1mu}  %% ten
+%\def\vecsign{\mathchar"017E}
+%\def\dvecsign{\smash{\stackon[-1.95pt]{\mkern-\shrinkage\vecsign}{\rotatebox{180}{$\mkern-\shrinkage\vecsign$}}}}
+%\def\ten#1{\def\useanchorwidth{T}\stackon[-4.2pt]{#1}{\,\dvecsign}}
+%\stackMath
+
+%%%%%%%%%%%%%%UUUUUUUUUUUUUUUUUUUU
+%%%Units
+% Astronomy
+\DeclareSIUnit\parsec{pc}
+\DeclareSIUnit\lightyear{ly}
+\DeclareSIUnit\year{yr}
+% Energy
+\DeclareSIUnit\erg{erg}
+\DeclareSIUnit\ev{ev}
+
+% Momentum
+\DeclareSIUnit\momentum{p}
+%% Forces
+\DeclareSIUnit\dyn{Dyne}
+%% Maasss
+\DeclareSIUnit\mass{mass}
+\DeclareSIUnit\volume{volume}
+%%%% Time
+\DeclareSIUnit\minute{min}
+
+
+%%%%    VVVVVVVVVVV
+\newcommand{\vecp}[2]{\vec{#1}\wedge\vec{#2}} %%%Prodotto vettore
+\newcommand{\vai}{V\"ais\"al\"a}
+
+% --- Macro \xvec-------------------------------------
+\makeatletter
+\newlength\xvec@height%
+\newlength\xvec@depth%
+\newlength\xvec@width%
+\newcommand{\xvec}[2][]{%
+  \ifmmode%
+    \settoheight{\xvec@height}{$#2$}%
+    \settodepth{\xvec@depth}{$#2$}%
+    \settowidth{\xvec@width}{$#2$}%
+  \else%
+    \settoheight{\xvec@height}{#2}%
+    \settodepth{\xvec@depth}{#2}%
+    \settowidth{\xvec@width}{#2}%
+  \fi%
+  \def\xvec@arg{#1}%
+  \def\xvec@dd{:}%
+  \def\xvec@d{.}%
+  \raisebox{.2ex}{\raisebox{\xvec@height}{\rlap{%
+    \kern.05em%  (Because left edge of drawing is at .05em)
+    \begin{tikzpicture}[scale=1]
+    \pgfsetroundcap
+    \draw (.05em,0)--(\xvec@width-.05em,0);
+    \draw (\xvec@width-.05em,0)--(\xvec@width-.15em, .075em);
+    \draw (\xvec@width-.05em,0)--(\xvec@width-.15em,-.075em);
+    \ifx\xvec@arg\xvec@d%
+      \fill(\xvec@width*.45,.5ex) circle (.5pt);%
+    \else\ifx\xvec@arg\xvec@dd%
+      \fill(\xvec@width*.30,.5ex) circle (.5pt);%
+      \fill(\xvec@width*.65,.5ex) circle (.5pt);%
+    \fi\fi%
+    \end{tikzpicture}%
+  }}}%
+  #2%
+}
+\makeatother
+
+% --- Override \vec with an invocation of \xvec.
+\let\stdvec\vec
+\renewcommand{\vec}[1]{\xvec[]{#1}}
+% --- Define \dvec and \ddvec for dotted and double-dotted vectors.
+\newcommand{\dvec}[1]{\xvec[.]{#1}}
+\newcommand{\ddvec}[1]{\xvec[:]{#1}}
+%---------------------------------------------------------

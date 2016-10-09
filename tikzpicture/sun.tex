@@ -1,0 +1,212 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pgfkeys{/pgf/fpu=true}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Define Constant for pgf
+
+% G
+%https://en.wikipedia.org/wiki/Gravitational_constant
+\pgfmathparse{6.674*(10^(-11))} %m3 Kg-1 s-2
+\edef\Gconst{\pgfmathresult}
+\pgfmathparse{6.67259*(10^(-8))} % cm3 g-1 s-2 relative error 128 ppm
+\edef\Gcgs{\pgfmathresult}
+
+%%Boltzmann constant
+\pgfmathparse{1.3805*(10^(-16))} %1.3805e-16 erg/degC
+\edef\kerg{\pgfmathresult}
+\pgfmathparse{8.617*(10^(-5))} %8.617e-5 eV/Ke
+\edef\kelettronvolt{\pgfmathresult}
+\pgfmathparse{2.0836618*(10^(10))} %2.0836618e10 Hz/Kelvin
+\edef\khertz{\pgfmathresult}
+
+%%% speed of light
+\pgfmathparse{299792458*10^2} %cm/second
+\edef\light{\pgfmathresult}
+
+
+%electron
+\pgfmathparse{0.510998910}  %Mev
+\edef\electronm{\pgfmathresult}
+
+%% massa
+\pgfmathparse{1989*10^(27)} %Kg
+\edef\massaS{\pgfmathresult}
+
+
+%%Standard_gravitational_parameter
+%https://en.wikipedia.org/wiki/Standard_gravitational_parameter
+%http://ssd.jpl.nasa.gov/?constants 
+
+\pgfmathparse{132712*10^(15)}   % m3 s-2 % standard gravitational parameter
+\edef\standardpar{\pgfmathresult}
+
+
+%% Radius
+%http://nssdc.gsfc.nasa.gov/planetary/factsheet/sunfact.html
+\pgfmathparse{696000*10^3} % m
+\edef\radius{\pgfmathresult}
+
+%% densita media
+\edef\densitym{1408}% mean density Kg/m^3
+\pgfmathparse{\densitym*10^(-3)} % m
+\edef\densitymcgs{\pgfmathresult}% mean density g/cm^3
+
+%% Accelerazione di gravità in superficie
+\pgfmathparse{(274)}
+\edef\gravitysurface{\pgfmathresult}    % gravity acceleration at sun's surface in m/s^2
+
+%% central temperature
+
+\pgfmathparse{1.571*10^7} %kelvin
+\edef\coreT{\pgfmathresult}
+
+%% central pressure
+\pgfmathparse{2.477*10^(11)*10^5} %Pressure bar to N/m^2
+\edef\pressurec{\pgfmathresult}
+%% 1 bar = 10^5 N/m^2
+
+
+%% Solar composition
+\pgfmathparse{0.70}
+\edef\X{\pgfmathresult}
+
+%% Solar irradiance
+
+%%Solar luminosity
+%http://www.astro.wisc.edu/~dolan/constants.html
+\pgfmathparse{3.846*10^(33)}    %%erg*s-1
+\edef\luminosityS{\pgfmathresult}
+
+%%% Reazioni nucleari
+\pgfmathparse{6.3*10^(18)}  %% erg g^-1 %
+\edef\QHHe{\pgfmathresult}
+
+
+\chapter{Tempi caratteristici}
+
+\section{Tempo-scala evoluzione dinamica}
+
+\subsection{Tempo collasso}
+\pgfmathparse{sqrt((\radius)/(\massaS*\Gconst/(\radius)^2))/60}
+
+\edef\tff{\pgfmathresult}
+
+$\tau_{ff}\approx$\pgfmathprintnumber{\tff} min 
+
+\subsection{Tempo esplosione}
+\pgfmathparse{\radius*sqrt(\densitym/(\Gconst*\massaS*\densitym/\radius))/60}
+\edef\tesp{\pgfmathresult}
+
+$\tau_{exp}\approx$ \pgfmathprintnumber{\tesp} ??
+
+\subsection{Tempo idro-dinamico}
+\pgfmathparse{sqrt((\radius)^3/\standardpar)/60}
+\edef\thydro{\pgfmathresult}
+
+\pgfmathparse{1/2*1/sqrt(\Gconst*\densitym)/60} 
+\pgfmathprintnumber{\pgfmathresult} min
+\pgfmathprintnumber{\thydro} min
+
+\section{Tempo collasso gravitazionale}
+
+\pgfmathparse{(\Gcgs*(\massaS*1000)^2)/(2*(100*\radius)*\luminosityS)/(60*60*24*365)} yr
+$\tkh{}=$\pgfmathprintnumber{\pgfmathresult}
+
+
+\section{Tempo nucleare}
+
+\pgfmathparse{15/100}\edef\Hef{\pgfmathresult}
+
+\pgfmathparse{(\massaS*1000*\Hef*0.75*\QHHe/\luminosityS)/(60*60*24*365)}\edef\taun{\pgfmathresult}
+
+Stima energia nucleare disponibile per fusione di tutto idrogeno in He:\pgfmathprintnumber{\taun} 
+
+\section{Periodo fondamentale}
+
+\subsection{Mean sound speed}
+\pgfmathparse{5/3} 
+\edef\Guno{\pgfmathresult}% Gammka 1 per gas completamente ionizzato
+
+\pgfmathparse{2.477*10^(11)} 
+\edef\pressureC{\pgfmathresult}%Central pressure:     2.477 x 1011 bar
+
+\pgfmathparse{1.571*10^7} 
+\edef\temperatureC{\pgfmathresult}%Central temperature:  1.571 x 107 K
+
+\edef\q{1.5}  %q=0.6 constant density, q=1.5 MS stars, q=3/(5-n) for polytropic of index n
+\pgfmathparse{\q*\Gcgs*((\massaS*10^3)^2)/(\radius*10^2)}
+\edef\potentialEG{\pgfmathresult}% Energia potenziale gravitazionale: valore assoluto
+ Energia potenziale gravitazionele ($||$):\pgfmathprintnumber{\potentialEG}.
+
+
+\pgfmathparse{((\potentialEG*\Guno)/(\massaS*3*(10^3)))/((10^5)^2)}
+\edef\soundsqrM{\pgfmathresult}%  squared sound speed 
+Velocit\'a del suono media quadra: \pgfmathprintnumber{\soundsqrM} \si{\square\kilo\meter\per\square\second}.
+
+\pgfmathparse{sqrt(0.1*10^6)}\edef\soundsMD{\pgfmathresult}
+Velocit\'a del suono media (Dalsgaard 85): \pgfmathprintnumber{\soundsMD} \si{\kilo\meter\per\second}.
+
+\pgfmathparse{sqrt(\soundsqrM)}\edef\soundsM{\pgfmathresult}
+Velocit\'a del suono media (viriale): \pgfmathprintnumber{\soundsM} \si{\kilo\meter\per\second}.
+
+
+\pgfmathparse{2*pi*(sqrt(\soundsqrM*10^(10)))/(2*\radius*10^2)}
+\edef\omegafond{\pgfmathresult}%  frequenza modo fondamentale 
+\pgfmathprintnumber{\omegafond}
+
+\pgfmathparse{2*pi/\omegafond/3600}
+\edef\pifond{\pgfmathresult}%  periodo modo fondamentale 
+Periodo fondamentale: \pgfmathprintnumber{\pifond}.
+
+\pgfmathparse{0.04*24}
+\edef\qgrande{\pgfmathresult}%  pulsation constant Q
+Pulsation constant: \pgfmathprintnumber{\qgrande}.
+
+\chapter{Deubner75}
+
+\pgfmathparse{0.5*10^(-6)*\radius}
+\edef\ldeubner{\pgfmathresult}%  l tipico
+l tipico osservazioni deubner: \pgfmathprintnumber{\ldeubner}.
+
+
+\chapter{Equazione di stato}
+
+\section{Esponente adiabatico}
+
+\pgfmathparse{(3/2)*(\kelettronvolt)*\coreT}% Energia cinetica media core
+\edef\avrkin{\pgfmathresult}%
+Energia cinetic media core: \pgfmathprintnumber{\avrkin}\si{\electronvolt}.
+
+\pgfmathparse{-(((2+2*\X)/(3+5*\X))*\coreT)/((\electronm*10^6)/(\kelettronvolt))}
+\edef\dgammarel{\pgfmathresult}%
+$\frac{\Lvar{\Gamma_1}}{\Gamma_1}=\pgfmathprintnumber{\dgammarel}$.
+
+
+\chapter{Caratteristiche delle oscillazioni}
+
+\section{Profondit\'a cavit\'a acustica}
+
+%\pgfmathparse{10^(-3)}% Pulsazìione tipo secondi^-1
+\pgfmathparse{((5000)*10^(-6)*(2*pi)}% Pulsazìione tipo microhertz
+\edef\pulsationalone{\pgfmathresult}%
+
+\pgfmathparse{0.1*10^(-6)} %Numero d'onda orizzontale tipo Metri^-1
+\edef\wnumberone{\pgfmathresult}%
+
+\pgfmathparse{(\pulsationalone)^2/(((\wnumberone)^2)*(5/3-1)*\gravitysurface)}
+
+\edef\depthacustic{\pgfmathresult}%
+La profondit\'a one $\delta=\pgfmathprintnumber{\depthacustic}\si{\meter}$ quindi $\frac{\delta}{\rsun{}}=\pgfmathparse{\depthacustic/\radius}\pgfmathprintnumber{\pgfmathresult}$, per un $L\approx\pgfmathparse{\radius*\wnumberone}\pgfmathprintnumber{\pgfmathresult}$
+
+\chapter{Modello solare}
+
+\section{Parametri fondamentali}
+
+\pgfmathparse{(\luminosityS/\light^2)/\massaS}
+\pgfmathprintnumber{\pgfmathresult}
+
+\pgfkeys{/pgf/fpu=false}
+
+\end{document}

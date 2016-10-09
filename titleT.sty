@@ -1,0 +1,23 @@
+\ProvidesPackage{titleT}
+
+\usepackage{titletoc}
+\setcounter{tocdepth}{0}
+
+\usepackage[compact,toctitles]{titlesec}
+\titleclass{\part}{top}
+
+\titleformat{\part}[block]{\huge\bfseries\centering\vspace*{\fill}}{\thepart}{10pt}{\huge}[\vspace*{\fill}] 
+
+\titleformat{\chapter}[block]
+{\huge}{\chaptertitlename\ \thechapter:\ }{0pt}{\huge}
+
+\titleformat{\section}{\LARGE}{}{0pt}{\LARGE}
+
+\titleformat{\subsection}[display]{\large}{}{0pt}{\large\scshape}[]
+
+
+\titlespacing*{\part}{0pt}{0pt}{0pt}
+\titlespacing*{\chapter}{0pt}{0pt}{0pt}
+\titlespacing{\section}{0pt}{*0}{*0}
+\titlespacing{\subsection}{0pt}{*0}{*0}
+\titlespacing{\subsubsection}{0pt}{*0}{*0}
