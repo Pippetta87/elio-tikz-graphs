@@ -1,0 +1,93 @@
+\ProvidesPackage{usepkg}
+
+\usepackage{blindtext}
+
+\usepackage[italian,english]{babel}
+
+%%%%%%%%%%%%%%%%%%%%%%%%   FONT
+%http://www.tug.dk/FontCatalogue/sansseriffonts.html
+%\usepackage{quattrocento}
+%\usepackage[T1]{fontenc}
+%http://slantchev.ucsd.edu/edu/latex/latex-pdf.html
+%\usepackage{lib/lucidabr}
+%\usepackage[T1]{fontenc}
+%\renewcommand{\rmdefault}{ptm}
+%\usepackage{lib/mtpro2} 
+%\usepackage[T1]{fontenc}
+%\usepackage{lxfonts}
+%\usepackage{lxfonts}
+
+\usepackage{amsmath,amssymb} 
+\usepackage{textcomp,gensymb}
+
+\usepackage{pxfonts}
+\usepackage[T1]{fontenc}
+
+%\usepackage{fouriernc}
+% \usepackage{fontspec}
+%\setmainfont{Cochin}
+
+%\usepackage{heuristica}
+%\usepackage[heuristica,vvarbb,bigdelims]{newtxmath}
+%\usepackage[T1]{fontenc}
+%\renewcommand*\oldstylenums[1]{\textosf{#1}}
+
+%https://www.sharelatex.com/blog/2013/04/02/using-your-favourite-fonts-with-sharelatex.html
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{braket}
+\usepackage{booktabs} %% better tabs
+\usepackage{mdwlist}
+\usepackage[font=normal,skip=0pt]{caption}
+\usepackage{subcaption}
+
+\usepackage{calc}
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usepackage{filecontents}
+
+\usetikzlibrary{
+arrows,
+calc,
+fit,
+fpu,
+intersections,
+positioning,
+decorations.pathreplacing
+}
+\usepackage{pgfplots}
+\usepackage{fp}
+
+
+%%%biblatex
+\usepackage[backend=biber,sorting=hot,maxbibnames=1,style=authoryear]{biblatex}
+
+\DeclareSortingScheme{hot}{
+\sort{\field{year}}
+\sort{\field{name}}
+}
+
+\usepackage{csquotes}
+%http://tex.stackexchange.com/questions/39285/whats-the-advantage-of-using-csquotes-over-using-an-editors-auto-replacement-f
+%%%%%
+
+\usepackage[normalem]{ulem} % either use this (simple) or
+\usepackage{hepnames}
+%http://www.terminally-incoherent.com/blog/2007/09/19/latex-squeezing-the-vertical-white-space/
+\usepackage{color}
+%\usepackage{datetime}
+\usepackage{enumitem}
+
+\usepackage{subfiles}
+
+\usepackage{siunitx}%% SI unitx
+\sisetup{%              SI setup
+    range-phrase = {\text{ -- }},
+    list-separator = {\text{, }},
+    list-final-separator = {\text{, e }},
+    list-pair-separator = {\text{ e }},
+}%
+\usepackage{tensor}
+
+
+\usepackage{mathtools}

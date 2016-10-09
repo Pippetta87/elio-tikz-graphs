@@ -1,0 +1,27 @@
+\ProvidesPackage{LocalF}
+
+\renewcommand\cftappendixname{\appendixname~}
+%\newcommand{\foo}{\@ifstar\@sfoo\@foo} 
+%\newcommand{\@sfoo}{something for the *-version}
+%\newcommand{\@foo}{something for the plain version}
+%\newenvironment{centeredfigure}{\begin{figure}\begin{center}}{\end{center}\end{figure}}
+
+%http://stackoverflow.com/questions/1565988/making-a-small-modification-to-a-latex-environment
+
+\newenvironment{definition}[1]{\textbf{Def.: #1.}\index{#1}}{$\mathfrak{Use\ it.}$}
+
+\let\oldref\ref
+\renewcommand{\ref}[1]{(\oldref{#1})}
+
+\newenvironment{todo}[1]{\textbf{Da cercare: #1.}\index{#1}}{$\mathfrak{Find\ it.}$}
+
+
+\newcommand{\dgndi}{$(k,\omega)$}
+\newcommand{\tool}[1]{\evt{Nodi} #1 \begin{center}\line(1,0){250}\end{center}} %Strumenti
+\newcommand{\gexp}{$\Gamma_1$}
+\newcommand{\ensemble}[1]{\{#1\}}
+\newenvironment{usefull}[1]{\textbf{N.B.:}\textbf{#1.}\index{#1 (Usefull)}}{$\mathfrak{Great!}$}
+
+
+
+

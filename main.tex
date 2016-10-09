@@ -1,0 +1,85 @@
+\documentclass[oneside,12pt,fleqn]{memoir}
+\usepackage{makeidx}
+%\usepackage[utf8]{inputenc}
+\pagestyle{plain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% importa pacchetti
+\usepackage{usepkg}
+\usepackage{fancyfoot}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% titletoc, titlesec setting
+\usepackage{titleT}
+%%%%%%%%%%%%%%%%%% setlength
+\usepackage{mylength}
+\linespread{0.5}
+%%%%%%%%%%%% Hyperref package
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%Geometry package
+\usepackage{mygeometry}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Funzioni per questo file main
+\usepackage{LocalF}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Funzioni generali
+\usepackage{functions}
+\usepackage{mathOp}
+%http://tex.stackexchange.com/questions/246/when-should-i-use-input-vs-include
+\usepackage{sources}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeindex
+\raggedbottom %http://tex.stackexchange.com/questions/102084/annoying-paragraph-spacing-issue-with-memoir
+
+\author{Pippetta}
+\title{Spunti per tesi eliosismologia}
+\date{\today}
+
+\begin{document}
+
+%\frontmatter
+
+\part{Hot Points}
+
+\subfile{hotpoints}
+
+\maketitle
+\tableofcontents*
+\listoffigures
+
+\mainmatter
+
+
+\part{Cosa fare?}
+
+\subfile{intro}
+
+\part{Tesina}
+
+\subfile{heliointro}
+\subfile{SSMintro}
+
+\subfile{waves1}
+\subfile{waves2}
+
+\subfile{inversion}
+
+\part{Onde in atmosfera/interno/vento stellare}
+
+\subfile{intromhd}
+\subfile{sunwaves}
+
+\appendix
+\part{Appendice}
+
+\subfile{appendix}
+
+\clearpage
+\addcontentsline{toc}{section}{Index}
+\printindex
+
+\end{document}

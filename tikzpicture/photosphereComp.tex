@@ -1,0 +1,12 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+\tpc{!ht}{
+\begin{semilogyaxis}[only marks,nodes near coords align=right]
+\addplot+[no markers,orange,visualization depends on={value \thisrow{Element} \as \El}, every node near coord/.append style={font={\tiny}},nodes near coords={\El}, error bars/.cd, y dir=both,y explicit, error mark=-]
+table[x={Z}, y={logA},y error index=3] {composition.dat};
+\addplot+[blue,mark=+] table [x={Z}, y={SSystem}] {composition.dat};
+\end{semilogyaxis}
+}{(3,-1)}{7.5cm}{Composizione  sole vs solar system}
+
+\end{document}

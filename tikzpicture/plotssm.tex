@@ -1,0 +1,21 @@
+\documentclass[../main.tex]{subfiles}
+%http://soho.nascom.nasa.gov/publications/CDROM1/papers/rhodes/index.html
+
+\begin{document}
+
+\pgfplotstableread{s1.txt}{\ssm}
+
+
+\begin{tikzpicture}
+
+\begin{axis}[
+width=0.7\textwidth,
+height=0.7\textheight
+]
+\addplot [black,only marks] table [x={RRsun}, y={Rho}] {\ssm};
+
+\end{axis}
+\end{tikzpicture}
+
+
+\end{document}
