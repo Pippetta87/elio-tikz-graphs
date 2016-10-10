@@ -1,23 +1,7 @@
-% Flowchart
-% Author: Qrrbrbirlbel
-\documentclass[tikz,border=10pt]{standalone}
-%%%<
+\documentclass[../main.tex]{subfiles}
+
 \usepackage{verbatim}
-%%%>
-\begin{comment}
-:Title: Flowchart
-:Tags: Diagrams;Flowcharts;Node positioning;Nodes and shapes
-:Author: Qrrbrbirlbel
-:Slug: flowchart
 
-This example flowchart uses the positioning-plus library and the
-node-families library by the same author. The fit library is implicitly loaded
-by positioning-plus, the backgrounds library is used to draw stuff behind
-other stuff, the calc library for some coordinate calculations and the
-shapes.geometric library for the ellipse shape.
-
-This example was written by Qrrbrbirlbel answering a question on TeX.SE.
-\end{comment}
 \usetikzlibrary{shapes.geometric,backgrounds,
   positioning-plus,node-families,calc}
 \tikzset{
@@ -46,6 +30,24 @@ This example was written by Qrrbrbirlbel answering a question on TeX.SE.
   vh/.style = {to path = {|-(\tikztotarget)\tikztonodes}},
   fat blue line/.style = {ultra thick, blue}
 }
+
+
+%%%>
+\begin{comment}
+:Title: Flowchart
+:Tags: Diagrams;Flowcharts;Node positioning;Nodes and shapes
+:Author: Qrrbrbirlbel
+:Slug: flowchart
+
+This example flowchart uses the positioning-plus library and the
+node-families library by the same author. The fit library is implicitly loaded
+by positioning-plus, the backgrounds library is used to draw stuff behind
+other stuff, the calc library for some coordinate calculations and the
+shapes.geometric library for the ellipse shape.
+
+This example was written by Qrrbrbirlbel answering a question on TeX.SE.
+\end{comment}
+
 \begin{document}
 \begin{tikzpicture}[node distance = 1.2cm, thick, nodes = {align = center},
     >=latex]
