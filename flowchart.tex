@@ -6,14 +6,14 @@
     align = center,
     draw  = #1,
     fill  = #1!25,
-    rounded corners},
-  header node/.style = {
+    rounded corners}
+    ,header node/.style = {
     Minimum Width = header nodes,
     font          = \strut\Large\ttfamily,
     text depth    = +0pt,
     fill          = white,
-    draw},
-  header/.style = {%
+    draw}
+    ,header/.style = {%
     inner ysep = +1.5em,
     append after command = {
       \pgfextra{\let\TikZlastnode\tikzlastnode}
@@ -45,6 +45,7 @@ This example was written by Qrrbrbirlbel answering a question on TeX.SE.
 \end{comment}
 
 \begin{document}
+
 \begin{tikzpicture}[node distance = 1.2cm, thick, nodes = {align = center},
     >=latex]
   \node[Minimum Width = loop, shape = ellipse, fill = red] (imp-sol)
