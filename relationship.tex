@@ -22,9 +22,9 @@
 \scalebox{.87}{
 \begin{tikzpicture}[node distance=1.5cm, every edge/.style={link}]
 
-  \node[entity] (emp) {Employee};
-  \node[attribute] (ename) [above=of emp] {Name} edge (emp);
-  \node[attribute] (enum) [above right=of emp] {\key{Number}} edge (emp);
+  \node[entity] (ssm) at (0,0) {SSM};
+  \node[attribute] (hydro) [left=of ssm] {Equilibrio idrostatico} edge (ssm);
+  \node[attribute] (thermal) [below=of hydro] {Equilibrio termico locale} edge (ssm);
 
   \node[isa] (isa) [below=1cm of emp] {ISA} edge (emp);
 
