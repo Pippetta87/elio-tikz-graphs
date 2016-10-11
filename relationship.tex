@@ -26,7 +26,7 @@
   \node[attribute] (hydro) [left=of ssm] {Equilibrio idrostatico} edge (ssm);
   \node[attribute] (thermal) [below=of hydro] {Equilibrio termico locale} edge (ssm);
 
-  \node[isa] (isa) [below=1cm of emp] {ISA} edge (emp);
+  \node[isa] (isa) [below=1cm of emp] {ISA} edge (ssm);
 
   \node[entity] (mec) [below left=1cm of isa] {Mechanic} edge (isa);
   \node[entity] (sal) [below right=1cm of isa] {Salesman} edge (isa);
@@ -71,6 +71,7 @@
   \draw[link] (cli.110) |- node [pos=0.05, auto] {seller} (buy);
 
 \end{tikzpicture}
+
 }
 
 \end{document}
