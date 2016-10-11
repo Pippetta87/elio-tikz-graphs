@@ -49,7 +49,7 @@
   \node[attribute] (year) [below right=of car] {Year} edge (car);
   \node[attribute] (manu) [below left=1.5cm of car] {Manufacturer} edge (car);
   
-  \node[relationship] (buy) [below=of sal] {Buys};
+  \node[relationship] (buy) [below=of stelparam] {Buys};
   \node[attribute] (pri) [above left=of buy] {Price} edge (buy);
   \node[attribute] (sdate) [left=of buy] {Date} edge (buy);
   \node[attribute] (bval) [below left=of buy] {Value} edge (buy);
@@ -59,8 +59,8 @@
   \node[derived attribute] (sval) [right=of sel] {Value} edge (sel);
   \node[attribute] (com) [below right=of sel] {Comission} edge (sel);
   
-  \draw[link] (car.10) -| (buy) (buy) edge (sal);
-  \draw[link] (car.-10) -| (sel) (sel) |- (sal);
+  \draw[link] (car.10) -| (buy) (buy) edge (stelparam);
+  \draw[link] (car.-10) -| (sel) (sel) |- (stelparam);
 
   \node[entity] (cli) [below right=0.5cm and 3.7cm of car] {Client};
   \node[attribute] (cid) [right=of cli] {\key{ID}} edge (cli);
