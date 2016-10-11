@@ -29,7 +29,7 @@
   
   \node[isa] (calibration) [below=2.5cm of ssm] {\parbox{4cm}{Parametri fisici da determinare tramite confronto con osservazioni: efficenza trasporto convettivo, abbondanza di elio iniziale}} edge (ssm);
 
-  \node[entity] (stelparam) [below left=1cm of isa] {Parametri stellari} edge (calibration);
+  \node[entity] (stelparam) [below=1cm of ssm] {Parametri stellari} edge (calibration);
   \node[entity] (sismobs) [right=1cm of ssm] {Osservabili sismologiche} edge (ssm);
 
   \node[relationship] (does) [left=of mec] {Does} edge (mec);
