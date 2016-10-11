@@ -27,7 +27,7 @@
   \node[attribute] (thermal) [below=of hydro] {Equilibrio termico locale} edge (ssm);
   \node[attribute] (opacity) [below=of thermal] {Equilibrio radiativo + criterio di Schwartzchild} edge (ssm);
   
-  \node[isa] (isa) [below=1cm of ssm] {Parametri fisici da determinare tramite confronto con osservazioni: efficenza trasporto convettivo, abbondanza di elio iniziale} edge (ssm);
+  \node[isa] (isa) [below=1cm of ssm] {\parbox{2cm}{Parametri fisici da determinare tramite confronto con osservazioni: efficenza trasporto convettivo, abbondanza di elio iniziale}} edge (ssm);
 
   \node[entity] (mec) [below left=1cm of isa] {Mechanic} edge (isa);
   \node[entity] (sal) [below right=1cm of isa] {Salesman} edge (isa);
