@@ -30,8 +30,8 @@
   \node[weak entity] (calibration) [above=1cm of ssm] {\parbox{4cm}{Parametri fisici da determinare tramite confronto con osservazioni: efficenza trasporto convettivo, abbondanza di elio iniziale}} edge (ssm);
 
   \node[relationship] (modelobs) [below=2cm of ssm] {Discrepanze modello/osservazioni} edge (ssm);
-  \node[entity] (stelparam) [below=1cm of ssm] {Parametri stellari};
-  \node[entity] (sismobs) [right=1cm of ssm] {Osservabili sismologiche} edge (ssm);
+  \node[entity] (stelparam) [below=1cm of opacity] {Parametri stellari} edge (modelobs);
+  \node[entity] (sismobs) [right=1cm of stelparam] {Osservabili sismologiche} edge (modelobs);
 
 
   \node[entity] (BOH) [right=of ssm] {boh} edge [<-] (modelobs);
