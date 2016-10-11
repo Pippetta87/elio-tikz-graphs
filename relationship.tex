@@ -27,10 +27,10 @@
   \node[attribute] (thermal) [below=of hydro] {Equilibrio termico locale} edge (ssm);
   \node[attribute] (opacity) [below=of thermal] {Equilibrio radiativo + criterio di Schwartzchild} edge (ssm);
   
-  \node[isa] (isa) [below=1cm of ssm] {\parbox{2cm}{Parametri fisici da determinare tramite confronto con osservazioni: efficenza trasporto convettivo, abbondanza di elio iniziale}} edge (ssm);
+  \node[isa] (calibration) [below=2.5cm of ssm] {\parbox{4cm}{Parametri fisici da determinare tramite confronto con osservazioni: efficenza trasporto convettivo, abbondanza di elio iniziale}} edge (ssm);
 
-  \node[entity] (mec) [below left=1cm of isa] {Mechanic} edge (isa);
-  \node[entity] (sal) [below right=1cm of isa] {Salesman} edge (isa);
+  \node[entity] (stelparam) [below left=1cm of isa] {Parametri stellari} edge (calibration);
+  \node[entity] (sismobs) [right=1cm of ssm] {Osservabili sismologiche} edge (ssm);
 
   \node[relationship] (does) [left=of mec] {Does} edge (mec);
 
