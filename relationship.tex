@@ -29,10 +29,10 @@
   
   \node[relationship] (calibration) [below =2cm of opacity] {Calibrazione luminosit\'a e raggio} edge (ssm);
 
-\node[weak entity] (unphys) [right=1cm of calibration] {Incertezze fisica del modello} edge [<-] (ssm);
+\node[weak entity] (unphys) [right=3cm of calibration] {Incertezze fisica del modello} edge [<-] (ssm);
 
 
-\node[entity] (corrections) [below right=3cm and 3cm of ssm] {Correzioni} edge [<-] (ssm);
+\node[entity] (corrections) [below right=4cm and 2cm of ssm] {Correzioni} edge [<-] (ssm);
   \node[entity] (modelobs) [below right=3cm and 2cm of ssm] {Discrepanze modello/osservazioni} edge [<-] (corrections);
   \node[entity] (surfaceobs) [above right=1cm and 2cm of ssm] {Osservabili stellari} edge[->] (modelobs);
   
