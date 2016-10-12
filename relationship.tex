@@ -23,20 +23,25 @@
 \begin{tikzpicture}[node distance=1.5cm, every edge/.style={link}]
 
   \node[entity] (ssm) at (0,0) {SSM};
-  \node[attribute] (hydro) [left=of ssm] {Equilibrio idrostatico} edge (ssm);
+  \node[attribute] (hydro) [above left=2cm and 1cm of ssm] {Equilibrio idrostatico} edge (ssm);
   \node[attribute] (thermal) [below=of hydro] {Equilibrio termico locale} edge (ssm);
   \node[attribute] (opacity) [below=of thermal] {Equilibrio radiativo + criterio di Schwartzchild} edge (ssm);
   
-  \node[relationship] (calibration) [below=1cm of ssm] {Calibrazione luminosit\'a e raggio} edge (ssm);
+  \node[relationship] (calibration) [below left=2cm and 2 cm of ssm] {Calibrazione luminosit\'a e raggio} edge (ssm);
 
-  \node[entity] (modelobs) [below right=3cm and 2cm of ssm] {Discrepanze modello/osservazioni} edge [<-] (ssm);
-  \node[entity] (surfaceobs) [above right=1cm and 2cm of ssm] {Osservabili stellari} edge (modelobs);
-  \node[entity] (sismobs) [below right=1cm and 2cm of ssm] {Osservabili sismologiche} edge (modelobs);
+\node[entity] (corrections) [below =2cm ssm] {Discrepanze modello/osservazioni} edge [<-] (correction);
+  \node[entity] (modelobs) [below right=3cm and 2cm of ssm] {Discrepanze modello/osservazioni} edge [<-] (correction);
+  \node[entity] (surfaceobs) [above right=1cm and 2cm of ssm] {Osservabili stellari} edge[->] (modelobs);
+  
+  \node[entity] (sismobs) [below right=1cm and 2cm of ssm] {Osservabili sismologiche} edge[->] (modelobs);
+  \node[attribute] (freqs) [right=1cm of sismobs] {Frequenze oscillazioni adiabatiche} edge (sismobs);
+  \node[attribute] (radiuscz) [left=1cm of sismobs] {Raggio fondo zona convettiva} edge (sismobs);
+  
 \node[weak entity] (unphys) [above left=1cm and 2 cm of ssm] {Incertezze fisica del modello} edge [<-] (ssm);
 
 
-\draw[link] (surfaceobs.70) -- node [pos=0.05, auto, swap] {accuratezza} (unphys);
-\draw[link] (sismobs.70) -- node [pos=0.05, auto, swap] {accuratezza} (unphys);
+\draw[link] (surfaceobs.300) -- node [pos=0.5, auto, swap] {accuratezza} (unphys);
+\draw[link] (sismobs.180) -- node [pos=0.5, auto, swap] {accuratezza} (unphys);
   
 
 \end{tikzpicture}
