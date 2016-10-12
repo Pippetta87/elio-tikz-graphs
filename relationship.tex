@@ -27,18 +27,18 @@
   \node[attribute] (thermal) [below=of hydro] {Equilibrio termico locale} edge (ssm);
   \node[attribute] (opacity) [below=of thermal] {Equilibrio radiativo + criterio di Schwartzchild} edge (ssm);
   
-  \node[relationship] (calibration) [below left=2cm and 2 cm of ssm] {Calibrazione luminosit\'a e raggio} edge (ssm);
+  \node[relationship] (calibration) [below =2cm of opacity] {Calibrazione luminosit\'a e raggio} edge (ssm);
 
-\node[entity] (corrections) [below=2cm of ssm] {Discrepanze modello/osservazioni} edge [<-] (ssm);
+\node[weak entity] (unphys) [right=1cm of calibration] {Incertezze fisica del modello} edge [<-] (ssm);
+
+
+\node[entity] (corrections) [below right=3cm and 3cm of ssm] {Correzioni} edge [<-] (ssm);
   \node[entity] (modelobs) [below right=3cm and 2cm of ssm] {Discrepanze modello/osservazioni} edge [<-] (corrections);
   \node[entity] (surfaceobs) [above right=1cm and 2cm of ssm] {Osservabili stellari} edge[->] (modelobs);
   
   \node[entity] (sismobs) [below right=1cm and 2cm of ssm] {Osservabili sismologiche} edge[->] (modelobs);
   \node[attribute] (freqs) [right=1cm of sismobs] {Frequenze oscillazioni adiabatiche} edge (sismobs);
   \node[attribute] (radiuscz) [left=1cm of sismobs] {Raggio fondo zona convettiva} edge (sismobs);
-  
-\node[weak entity] (unphys) [above left=1cm and 2 cm of ssm] {Incertezze fisica del modello} edge [<-] (ssm);
-
 
 \draw[link] (surfaceobs.300) -- node [pos=0.5, auto, swap] {accuratezza} (unphys);
 \draw[link] (sismobs.180) -- node [pos=0.5, auto, swap] {accuratezza} (unphys);
