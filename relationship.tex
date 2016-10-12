@@ -29,7 +29,7 @@
   
   \node[relationship] (calibration) [below left=2cm and 2 cm of ssm] {Calibrazione luminosit\'a e raggio} edge (ssm);
 
-\node[entity] (corrections) [below=2cm of ssm] {Discrepanze modello/osservazioni} edge [<-] (correction);
+\node[entity] (corrections) [below=2cm of ssm] {Discrepanze modello/osservazioni} edge [<-] (ssm);
   \node[entity] (modelobs) [below right=3cm and 2cm of ssm] {Discrepanze modello/osservazioni} edge [<-] (corrections);
   \node[entity] (surfaceobs) [above right=1cm and 2cm of ssm] {Osservabili stellari} edge[->] (modelobs);
   
