@@ -32,11 +32,11 @@
   \node[relationship] (modelobs) [below=3cm of ssm] {Discrepanze modello/osservazioni} edge (ssm);
   \node[entity] (surfaceobs) [above right=1cm and 2cm of ssm] {Osservabili stellari} edge (modelobs);
   \node[entity] (sismobs) [below right=1cm and 2cm of ssm] {Osservabili sismologiche} edge (modelobs);
+\node[weak entity] (unphys) [above left=1cm and 2 cm of ssm] {Incertezze fisica del modello} edge [<-] (ssm);
+
 
 \draw[link] (surfaceobs.70) |- node [pos=0.05, auto, swap] {accuratezza} (unphys);
 \draw[link] (sismobs.70) |- node [pos=0.05, auto, swap] {accuratezza} (unphys);
-
- \node[weak entity] (unphys) [above left=1cm and 2 cm of ssm] {Incertezze fisica del modello} edge [<-] (ssm);
   
 
 \end{tikzpicture}
