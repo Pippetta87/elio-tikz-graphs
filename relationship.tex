@@ -12,11 +12,11 @@
 \tikzstyle{every weak entity} = [drop shadow={shadow xshift=.7ex, 
                                  shadow yshift=-.7ex}]
 \tikzstyle{every attribute} = [top color=white, bottom color=yellow!20, 
-                               draw=yellow, node distance=1cm, drop shadow]
+                               draw=yellow, node distance=1cm, drop shadow,text width=1.5cm]
 \tikzstyle{every relationship} = [top color=white, bottom color=red!20, 
-                                  draw=red!50!black!100, drop shadow]
+                                  draw=red!50!black!100, drop shadow,text width=2cm]
 \tikzstyle{every isa} = [top color=white, bottom color=green!20, 
-                         draw=green!50!black!100, drop shadow, text width=2cm]
+                         draw=green!50!black!100, drop shadow,]
 
 \centering
 \scalebox{.45}{
@@ -27,11 +27,11 @@
   \node[attribute] (thermal) [below=of hydro] {Equilibrio termico locale} edge (ssm);
   \node[attribute] (opacity) [below=of thermal] {Equilibrio radiativo + criterio di Schwartzchild} edge (ssm);
   
-  \node[weak entity] (calibration) [above=1cm of ssm] {\parbox{4cm}{Parametri fisici da determinare tramite confronto con osservazioni: efficenza trasporto convettivo, abbondanza di elio iniziale}} edge (ssm);
+  \node[relationship] (calibration) [above=1cm of ssm] {Calibrazione luminosit\'a e raggio} edge (ssm);
 
-  \node[relationship] (modelobs) [below=2cm of ssm] {Discrepanze modello/osservazioni} edge (ssm);
-  \node[entity] (stelparam) [below=1cm of opacity] {Parametri stellari} edge (modelobs);
-  \node[entity] (sismobs) [right=1cm of stelparam] {Osservabili sismologiche} edge (modelobs);
+  \node[relationship] (modelobs) [below=3cm of ssm] {Discrepanze modello/osservazioni} edge (ssm);
+  \node[entity] (stelparam) [below=2cm of opacity] {Parametri stellari} edge (modelobs);
+  \node[entity] (sismobs) [right=2cm of stelparam] {Osservabili sismologiche} edge (modelobs);
 
 
   \node[entity] (BOH) [right=of ssm] {boh} edge [<-] (modelobs);
