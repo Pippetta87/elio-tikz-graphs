@@ -29,15 +29,15 @@
   
   \node[relationship] (calibration) [below =2cm of opacity] {Calibrazione luminosit\'a e raggio} edge (ssm);
 
-\node[weak entity] (unphys) [right=3cm of calibration] {Incertezze fisica del modello} edge [<-] (ssm);
+\node[weak entity] (unphys) [above right=2cm and 2cm of calibration] {Incertezze fisica del modello} edge [<-] (ssm);
 
 
-\node[entity] (corrections) [below right=2.5cm and 3.5cm of ssm] {Correzioni} edge [<-] (ssm);
-  \node[entity] (modelobs) [below right=3cm and 2cm of ssm] {Discrepanze modello/osservazioni} edge [<-] (corrections);
+\node[entity] (corrections) [below right=3.5cm and 2.5cm of ssm] {Correzioni} edge [<-] (ssm);
+  \node[entity] (modelobs) [below right=3.5cm and 1.5cm of ssm] {Discrepanze modello/osservazioni} edge [<-] (corrections);
   \node[entity] (surfaceobs) [above right=1cm and 2cm of ssm] {Osservabili stellari} edge[->] (modelobs);
   
   \node[entity] (sismobs) [below right=1cm and 2cm of ssm] {Osservabili sismologiche} edge[->] (corrections);
-  \draw[<-]  (sismobs.20)--(20:1) node[attribute] (freqs) {Frequenze oscillazioni adiabatiche} edge (sismobs);
+  \draw[<-]  (sismobs.110)--(20:1) node[attribute] (freqs) {Frequenze oscillazioni adiabatiche} edge (sismobs);
   \node[attribute] (radiuscz) [right=1cm of sismobs] {Raggio fondo zona convettiva} edge (sismobs);
 
 \draw[link,<->] (surfaceobs.300) -- node [pos=0.5, auto, swap] {accuratezza} (unphys);
