@@ -27,16 +27,16 @@
   \node[attribute] (thermal) [below=of hydro] {Equilibrio termico locale} edge (ssm);
   \node[attribute] (opacity) [below=of thermal] {Equilibrio radiativo + criterio di Schwartzchild} edge (ssm);
   
-  \node[relationship] (calibration) [above=1cm of ssm] {Calibrazione luminosit\'a e raggio} edge (ssm);
+  \node[relationship] (calibration) [below=1cm of ssm] {Calibrazione luminosit\'a e raggio} edge (ssm);
 
-  \node[relationship] (modelobs) [below=3cm of ssm] {Discrepanze modello/osservazioni} edge (ssm);
+  \node[entity] (modelobs) [below right=3cm and 2cm of ssm] {Discrepanze modello/osservazioni} edge [<-] (ssm);
   \node[entity] (surfaceobs) [above right=1cm and 2cm of ssm] {Osservabili stellari} edge (modelobs);
   \node[entity] (sismobs) [below right=1cm and 2cm of ssm] {Osservabili sismologiche} edge (modelobs);
 \node[weak entity] (unphys) [above left=1cm and 2 cm of ssm] {Incertezze fisica del modello} edge [<-] (ssm);
 
 
-\draw[link] (surfaceobs.70) |- node [pos=0.05, auto, swap] {accuratezza} (unphys);
-\draw[link] (sismobs.70) |- node [pos=0.05, auto, swap] {accuratezza} (unphys);
+\draw[link] (surfaceobs.70) -- node [pos=0.05, auto, swap] {accuratezza} (unphys);
+\draw[link] (sismobs.70) -- node [pos=0.05, auto, swap] {accuratezza} (unphys);
   
 
 \end{tikzpicture}
