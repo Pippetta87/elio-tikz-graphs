@@ -30,12 +30,13 @@
   \node[relationship] (calibration) [above=1cm of ssm] {Calibrazione luminosit\'a e raggio} edge (ssm);
 
   \node[relationship] (modelobs) [below=3cm of ssm] {Discrepanze modello/osservazioni} edge (ssm);
-  \node[entity] (surfaceobs) [above right=1cm 2cm of ssm] {Parametri stellari} edge (modelobs);
-  \node[entity] (sismobs) [below right=1cm 2cm of ssm] {Osservabili sismologiche} edge (modelobs);
+  \node[entity] (surfaceobs) [above right=1cm and 2cm of ssm] {Parametri stellari} edge (modelobs);
+  \node[entity] (sismobs) [below right=1cm and 2cm of ssm] {Osservabili sismologiche} edge (modelobs);
 
+\node[entity] (accuracy) [right=1cm of ssm] {Accuratezza misura} edge (ssm);
 
   %\node[entity] (BOH) [right=of ssm] {boh} edge [<-] (modelobs);
-  %\draw[link] (cli.70) |- node [pos=0.05, auto, swap] {buyer} (sel);
+  \draw[link] (surfaceobs.70) |- node [pos=0.05, auto, swap] {boh} (ssm);
   %\draw[link] (cli.110) |- node [pos=0.05, auto] {seller} (buy);
 
 
