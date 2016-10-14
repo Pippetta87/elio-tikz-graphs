@@ -23,8 +23,8 @@
 \begin{tikzpicture}[node distance=1.5cm, every edge/.style={link}]
 
   \node[entity] (ssm) at (0,0) {SSM};
-\draw[<-]  (sismobs.190)--++(190:2cm) node[attribute] (hydro) [above left=2cm and 1cm of ssm] {Equilibrio idrostatico} edge (ssm);
-\draw[<-]  (sismobs.170)--++(170:2cm) node[attribute] (thermal) [below=of hydro] {Equilibrio termico locale} edge (ssm);
+\draw[<-]  (ssm.190)--++(190:2cm) node[attribute] (hydro) [above left=2cm and 1cm of ssm] {Equilibrio idrostatico} edge (ssm);
+\draw[<-]  (ssm.170)--++(170:2cm) node[attribute] (thermal) [below=of hydro] {Equilibrio termico locale} edge (ssm);
 \draw[<-]  (ssm.180)--++(180:2cm) node[attribute] (opacity) [below=of thermal] {Equilibrio radiativo + criterio di Schwartzchild} edge (ssm);
   
   \node[relationship] (calibration) [above =1.5cm of ssm] {Calibrazione luminosit\'a e raggio} edge[<-] (ssm);
