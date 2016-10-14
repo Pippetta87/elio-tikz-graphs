@@ -29,7 +29,7 @@
   
   \node[relationship] (calibration) [above =1.5cm of ssm] {Calibrazione luminosit\'a e raggio} edge[<-] (ssm);
 
-\node[entity] (unphys) [above right=1cm and 2cm of calibration] {Incertezze fisica del modello} edge [<-] (ssm);
+\node[entity] (unphys) [above right=1cm and 2cm of ssm] {Incertezze fisica del modello} edge [<-] (ssm);
 
 \node[entity] (corrections) [below right=2.5cm and 1.5 of ssm] {Correzioni} edge [->] (ssm);
   \node[entity] (modelobs) [right=2.5cm and 1.5cm of ssm] {Discrepanze modello/osservazioni} edge [->] (corrections);
