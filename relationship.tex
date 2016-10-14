@@ -34,12 +34,12 @@
 \node[entity] (surfaceobs) [above right=1cm and 1cm of calibration] {Osservabili stellari};
 \node[entity] (modelobs) [left=3cm of surfaceobs] {Discrepanze modello/osservazioni} edge [->] (corrections);
 \node[entity,anchor=north west] (sismobs) at (surfaceobs.south east) {Osservabili sismologiche};
-\draw[<-]  (sismobs.20)--++(30:3cm) node[attribute] (freqs) {Frequenze oscillazioni adiabatiche} edge (sismobs);
-\draw[<-] (sismobs.5)--++(5:2cm) node[attribute] (radiuscz) {Raggio fondo zona convettiva} edge (sismobs);
+\draw[<->]  (sismobs.20)--++(30:3cm) node[attribute] (freqs) {Frequenze oscillazioni adiabatiche};
+\draw[<->] (sismobs.5)--++(5:2cm) node[attribute] (radiuscz) {Raggio fondo zona convettiva};
 
-\draw[link,<->] (surfaceobs.300) -- node [pos=0.5, auto, swap] {accuratezza} (unphys);
-\draw[link,<->] (sismobs.180) -- node [pos=0.5, auto, swap] {accuratezza} (unphys);
-\node[draw,purple,fit=(hydro)(thermal)(opacity)(ssm),ellipse,label={[label distance=1cm]150:Modello Solare standard}] at (hydro.west) {};
+\draw[link,<->] (surfaceobs.300) -- node [pos=0.8, auto, swap] {accuratezza} (unphys);
+\draw[link,<->] (sismobs.180) -- node [pos=0.2, auto, swap] {accuratezza} (unphys);
+\node[draw,purple,fit=(hydro)(thermal)(opacity)(ssm),ellipse,label={[label distance=1cm]150[purple]:Modello Solare standard}] at (hydro.west) {};
 
 \end{tikzpicture}
 
