@@ -34,7 +34,7 @@
 \node[entity] (corrections) [below right=2.5cm and 1.5 of ssm] {Correzioni} edge [->] (ssm);
   \node[entity] (modelobs) [right=2.5cm and 1.5cm of ssm] {Discrepanze modello/osservazioni} edge [<-] (corrections);
   \node[entity] (surfaceobs) [above=1cm of ssm] {Osservabili stellari} edge[->] (modelobs);
-  \node[entity,anchor=north west]  at (surfaceobs.south est) (sismobs) {Osservabili sismologiche} edge[->] (corrections);
+  \node[entity,anchor=north west]  at (surfaceobs.south east) (sismobs) {Osservabili sismologiche} edge[->] (corrections);
   \draw[<-]  (sismobs.20)--++(30:2) node[attribute] (freqs) {Frequenze oscillazioni adiabatiche} edge (sismobs);
   \node[attribute] (radiuscz.5)--++(5:2) {Raggio fondo zona convettiva} edge (sismobs);
 
