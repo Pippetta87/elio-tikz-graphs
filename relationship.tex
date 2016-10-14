@@ -25,7 +25,7 @@
   \node[entity] (ssm) at (0,0) {SSM};
 \draw[<-]  (ssm.190)--++(190:2cm) node[attribute] (hydro) [above left=2cm and 1cm of ssm] {Equilibrio idrostatico} edge (ssm);
 \draw[<-]  (ssm.170)--++(170:2cm) node[attribute] (thermal) [below=of hydro] {Equilibrio termico locale} edge (ssm);
-\draw[<-]  (ssm.180)--++(180:2cm) node[attribute] (opacity) [below=of thermal] {Equilibrio radiativo + criterio di Schwartzchild} edge (ssm);
+\draw[<-]  (ssm.175)--++(175:2cm) node[attribute] (opacity) [below=of thermal] {Equilibrio radiativo + criterio di Schwartzchild} edge (ssm);
   
   \node[relationship] (calibration) [above =1.5cm of ssm] {Calibrazione luminosit\'a e raggio} edge[<-] (ssm);
 
@@ -34,12 +34,12 @@
 \node[entity] (surfaceobs) [above right=1cm and 1cm of calibration] {Osservabili stellari};
 \node[entity] (modelobs) [left=3cm of surfaceobs] {Discrepanze modello/osservazioni} edge [->] (corrections);
 \node[entity,anchor=north west] (sismobs) at (surfaceobs.south east) {Osservabili sismologiche};
-\draw[<-]  (sismobs.20)--++(30:2cm) node[attribute] (freqs) {Frequenze oscillazioni adiabatiche} edge (sismobs);
+\draw[<-]  (sismobs.20)--++(30:3cm) node[attribute] (freqs) {Frequenze oscillazioni adiabatiche} edge (sismobs);
 \draw[<-] (sismobs.5)--++(5:2cm) node[attribute] (radiuscz) {Raggio fondo zona convettiva} edge (sismobs);
 
 \draw[link,<->] (surfaceobs.300) -- node [pos=0.5, auto, swap] {accuratezza} (unphys);
 \draw[link,<->] (sismobs.180) -- node [pos=0.5, auto, swap] {accuratezza} (unphys);
-\node[fit=(hydro)(thermal)(opacity)(ssm),circle] {Modello Solare standard};
+\node[draw,purple,fit=(hydro)(thermal)(opacity)(ssm),circle] at (hydro.west) {Modello Solare standard};
 
 \end{tikzpicture}
 
