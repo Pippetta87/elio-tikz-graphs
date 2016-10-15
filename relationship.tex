@@ -1,4 +1,3 @@
-% Author: Pável Calado
 % the tikz-er2.sty package is available at:
 % http://tagus.inesc-id.pt/~pcalado/tikzer2/tikz-er2.
 \documentclass[../main.tex]{subfiles}
@@ -23,9 +22,9 @@
 \begin{tikzpicture}[node distance=1.5cm, every edge/.style={link}]
 
   \node[entity] (ssm) at (0,0) {SSM};
-\draw[<-]  (ssm.190)--++(190:2cm) node[attribute] (hydro) [above left=2cm and 1cm of ssm] {Equilibrio idrostatico};
-\draw[<-]  (ssm.170)--++(170:2cm) node[attribute] (thermal) [below=of hydro] {Equilibrio termico locale};
-\draw[<-]  (ssm.175)--++(175:2cm) node[attribute] (opacity) [below=of thermal] {Equilibrio radiativo + criterio di Schwartzchild};
+\draw[<-]  (ssm.190)--++(190:2cm) node[attribute] (hydro) {Equilibrio idrostatico};
+\draw[<-]  (ssm.170)--++(170:2cm) node[attribute] (thermal) {Equilibrio termico locale};
+\draw[<-]  (ssm.175)--++(175:2cm) node[attribute] (opacity) {Equilibrio radiativo + criterio di Schwartzchild};
 
 \node[relationship] (calibration) [above =1.5cm of ssm] {Calibrazione luminosit\'a e raggio} edge[<-] (ssm);
 
@@ -37,8 +36,8 @@
 \draw[link,<->]  (sismobs.20)--++(30:3cm) node[attribute] (freqs) {Frequenze oscillazioni adiabatiche};
 \draw[link,<->] (sismobs.5)--++(5:2cm) node[attribute] (radiuscz) {Raggio fondo zona convettiva};
 
-\draw[link,<->] (surfaceobs.300) -- node [pos=0.8, auto, swap] {accuratezza} (unphys);
-\draw[link,<->] (sismobs.180) -- node [pos=0.2, auto, swap] {accuratezza} (unphys);
+\draw[link,<->] (surfaceobs.300) -- node [pos=0.8, auto, swap,left] {accuratezza} (stellaracc);
+\draw[link,<->] (sismobs.180) -- node [pos=0.2, auto, swap,right] {accuratezza} (sismacc);
 \node[draw,purple,fit=(hydro)(thermal)(opacity)(ssm),ellipse,label={[purple,label distance=1cm]150:Modello Solare standard}] at (hydro.west) {};
 
 \end{tikzpicture}
