@@ -15,7 +15,7 @@
 \tikzstyle{every relationship} = [top color=white, bottom color=red!20, 
                                   draw=red!50!black!100, drop shadow,text width=2cm]
 \tikzstyle{every isa} = [top color=white, bottom color=green!20, 
-                         draw=green!50!black!100, drop shadow,]
+                         draw=green!50!black!100, drop shadow,text width=2cm]
 
 \centering
 \scalebox{.25}{
@@ -30,7 +30,10 @@
 
 \node[entity] (unphys) [above right=1cm and 2cm of ssm] {Incertezze fisica del modello} edge [<-] (ssm);
 \node[entity] (corrections) [left=3cm of ssm] {Correzioni} edge [->] (ssm);
+
 \node[entity] (surfaceobs) [above right=1cm and 1cm of calibration] {Osservabili stellari};
+\draw[link,->] (surfaceobs.90)--++(90:2cm) node[attribute] {Misura metellicit\'a superficiale}
+
 \node[entity] (modelobs) [left=3cm of surfaceobs] {Discrepanze modello/osservazioni} edge [->] (corrections);
 \node[entity,anchor=north west] (sismobs) at (surfaceobs.south east) {Osservabili sismologiche};
 \draw[link,<->]  (sismobs.20)--++(30:3cm) node[attribute] (freqs) {Frequenze oscillazioni adiabatiche};
@@ -38,7 +41,9 @@
 
 \draw[link,<->] (surfaceobs.180) -- (unphys.170) node [pos=0.8, left] (stellaracc) {accuratezza};
 \draw[link,<->] (sismobs.340) -- (unphys.20) node [pos=0.2, right] (sismacc) {accuratezza};
-\node[draw,purple,fit=(hydro)(thermal)(opacity)(ssm),ellipse,label={[purple,label distance=1cm]150:Modello Solare standard}] at (hydro.west) {};
+
+\node[draw,purple,fit=(hydro)(thermal)(opacity)(ssm),ellipse,label={[purple,label distance=1cm]150:Modello Solare standard}] (ssmapprox) at (hydro.west) {};
+\node[isa,anchor=west] at (ssmapprox.west) {\begin{itemize}\item Composizione superficiale\item modelli idrodinamici dell'atmosfera e inclusione di effetti NLTE\item Effetto screening degli elettroni sulle reazioni nucleari};
 
 \end{tikzpicture}
 
