@@ -7,7 +7,7 @@
 \thispagestyle{empty}
 
 \tikzstyle{every entity} = [top color=white, bottom color=blue!30, 
-                            draw=blue!50!black!100, drop shadow]
+                            draw=blue!50!black!100, drop shadow,text width=2cm]
 \tikzstyle{every weak entity} = [drop shadow={shadow xshift=.7ex, 
                                  shadow yshift=-.7ex}]
 \tikzstyle{every attribute} = [top color=white, bottom color=yellow!20, 
@@ -43,7 +43,7 @@
 \draw[link,<->] (sismobs.340) -- (unphys.20) node [pos=0.2, right] (sismacc) {accuratezza};
 
 \node[draw,purple,fit=(hydro)(thermal)(opacity)(ssm),ellipse,label={[purple,label distance=1cm]150:Modello Solare standard}] (ssmapprox) at (hydro.west) {};
-\node[entity,anchor=west] at (ssmapprox.west) {\begin{itemize*}\item Composizione superficiale\item modelli idrodinamici dell'atmosfera e inclusione di effetti NLTE\item Effetto screening degli elettroni sulle reazioni nucleari\end{itemize*}};
+\node[entity,anchor=west] at (ssmapprox.west) { \begin{itemize*} \item Composizione superficiale \item modelli idrodinamici dell'atmosfera e inclusione di effetti NLTE \item Effetto screening degli elettroni sulle reazioni nucleari\end{itemize*} };
 
 \end{tikzpicture}
 
