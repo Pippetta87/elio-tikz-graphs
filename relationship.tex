@@ -31,7 +31,7 @@
 \node[entity] (unphys) [above right=1cm and 2cm of ssm] {Incertezze fisica del modello} edge [<-] (ssm);
 \node[entity] (corrections) [left=3cm of ssm] {Correzioni} edge [->] (ssm);
 \draw[link,<->] (unphys.240)--++(240:4cm) node[attribute] (diffusion) {Diffusione};
-\draw[link,<->] (sismobs.260)--++(260:2cm) node[attribute] (MLT) {Modello convezione: MLT.};
+\draw[link,<->] (unphys.260)--++(260:2cm) node[attribute] (MLT) {Modello convezione: MLT.};
 \draw[link,<->] (unphys.280)--++(280:2cm) node[attribute] (modefreqsurf) {Influenza della zona superficiale sulle frequenze delle oscillazioni};
 
 \node[entity] (surfaceobs) [above right=1cm and 1cm of calibration] {Osservabili stellari};
