@@ -30,6 +30,7 @@
 
 \node[entity] (unphys) [above right=1cm and 2cm of ssm] {Incertezze fisica del modello} edge [<-] (ssm);
 \node[entity] (corrections) [left=3cm of ssm] {Correzioni} edge [->] (ssm);
+\draw[link,<->] (unphys.200)--++(200:2cm) node[attribute] (diffusion) {Diffusione};
 
 \node[entity] (surfaceobs) [above right=1cm and 1cm of calibration] {Osservabili stellari};
 \draw[link,->] (surfaceobs.90)--++(90:2cm) node[attribute] {Misura metellicit\'a superficiale};
