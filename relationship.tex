@@ -30,7 +30,9 @@
 
 \node[entity] (unphys) [above right=1cm and 2cm of ssm] {Incertezze fisica del modello} edge [<-] (ssm);
 \node[entity] (corrections) [left=3cm of ssm] {Correzioni} edge [->] (ssm);
-\draw[link,<->] (unphys.200)--++(200:2cm) node[attribute] (diffusion) {Diffusione};
+\draw[link,<->] (unphys.240)--++(240:4cm) node[attribute] (diffusion) {Diffusione};
+\draw[link,<->] (sismobs.260)--++(260:2cm) node[attribute] (MLT) {Modello convezione: MLT.};
+\draw[link,<->] (unphys.280)--++(280:2cm) node[attribute] (modefreqsurf) {Influenza della zona superficiale sulle frequenze delle oscillazioni};
 
 \node[entity] (surfaceobs) [above right=1cm and 1cm of calibration] {Osservabili stellari};
 \draw[link,->] (surfaceobs.90)--++(90:2cm) node[attribute] {Misura metellicit\'a superficiale};
@@ -40,10 +42,12 @@
 \draw[link,<->]  (sismobs.20)--++(30:3cm) node[attribute] (freqs) {Frequenze oscillazioni adiabatiche};
 \draw[link,<->] (sismobs.5)--++(5:2cm) node[attribute] (radiuscz) {Raggio fondo zona convettiva};
 
+\node[entity,anchor=north west] (neutrinoflux) at (sismobs.south east) {Flusso neutrini solari};
+
 \draw[link,<->] (surfaceobs.180) -- (unphys.170) node [pos=0.8, left] (stellaracc) {accuratezza};
 \draw[link,<->] (sismobs.340) -- (unphys.20) node [pos=0.2, right] (sismacc) {accuratezza};
 
-\node[draw,purple,fit=(hydro)(thermal)(opacity)(ssm),ellipse,label={[purple,label distance=1cm]120:Modello Solare standard}] (ssmapprox) at (hydro.west) {};
+\node[draw,purple,fit=(hydro)(thermal)(opacity)(ssm),ellipse,label={[purple,label distance=1cm]120:Oltre il Modello Solare standard}] (ssmapprox) at (hydro.west) {};
 \node[entity,anchor=east] (ssmapproxlist) at (ssmapprox.west) { \begin{itemize*} \item Composizione superficiale \item modelli idrodinamici dell'atmosfera e inclusione di effetti NLTE \item Effetto screening degli elettroni sulle reazioni nucleari\end{itemize*} };
 
 \end{tikzpicture}
