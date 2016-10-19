@@ -47,12 +47,14 @@
 \draw[link,->] (sismobs.8)--++(8:4cm) node[attribute, anchor=8+180] (heliumenv) {$Y_{ph}$};
 \draw[link,->] (sismobs.345)--++(345:5cm) node[attribute, anchor=345+180] (soundspeed) {Velocit\'a del suono (isothermal): $c_s(r)/u(r)$};
 \draw[link,->] (sismobs.30)--++(30:4cm) node[attribute,anchor=30+180] (densitybcz) {Densit\'a fondo zona convettiva $\rho_{cz}$};
-\draw[link,->] (ssm.315)--++(315:2cm) node[entity, anchor=315+180] {Soluzione problema agli autovalori modi normali adiabatici};
+\draw[link,->] (ssm.315)--++(315:2cm) node[entity, anchor=315+180] (ssmoscmodes) {Soluzione problema agli autovalori modi normali adiabatici};
+
+\draw[link,->] (sismobs.215)--(ssm)++(1cm,0) node[entity, anchor=215+180] {Tecniche di inversione};
 
 \node[entity,anchor=north west] (neutrinoflux) at (sismobs.south east) {Flusso neutrini solari};
 
-\draw[link,<->] (surfaceobs.50) -- (unphys.200) node [sloped,pos=0.5, anchor=south] (stellaracc) {accuratezza};
-\draw[link,<->] (sismobs.60) -- (unphys.270) node [sloped,pos=0.5, anchor=south] (sismacc) {accuratezza};
+\draw[link,<->] (surfaceobs.200) -- (unphys.50) node [sloped,pos=0.5, anchor=north] (stellaracc) {accuratezza};
+\draw[link,<->] (sismobs.270) -- (unphys.60) node [sloped,pos=0.5, anchor=south] (sismacc) {accuratezza};
 
 \node[draw,purple,fit=(hydro)(thermal)(opacity)(ssm),ellipse,label={[purple,label distance=1cm]120:Oltre il Modello Solare standard}] (ssmapprox) at (hydro.west) {};
 \node[weak entity,anchor=east] (ssmapproxlist) at (ssmapprox.west) { \begin{itemize*} \item Composizione superficiale \item modelli idrodinamici dell'atmosfera e inclusione di effetti NLTE \item Effetto screening degli elettroni sulle reazioni nucleari\end{itemize*} };
