@@ -39,7 +39,7 @@
 \draw[link,->] (surfaceobs.90)--++(90:2cm) node[attribute, anchor=90+180] {Misura metellicit\'a superficiale};
 
 \node[entity] (modelobs) [below=1.5cm of ssm] {Discrepanze modello/osservazioni}; 
-\node[entity] at (modelobs.south east) (corrections) [anchor=north west] {Correzioni} edge [->,in=[30],out=[60]] (ssm);
+\node[entity,anchor=north west] at (modelobs.south east) (corrections) {Correzioni} edge [->,in=[30],out=[60]] (ssm);
 \node[entity,anchor=north west] (sismobs) at (surfaceobs.south east) {Osservabili sismologiche};
 \draw[link,->]  (sismobs.45)--++(45:3cm) node[attribute, anchor=45+180] (freqs) {Frequenze oscillazioni adiabatiche};
 \draw[link,->] (sismobs.5)--++(5:2cm) node[attribute, anchor=5+180] (radiuscz) {Raggio fondo zona convettiva};
