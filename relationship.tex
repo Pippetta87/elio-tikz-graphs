@@ -51,8 +51,8 @@
 
 \node[entity,anchor=north west] (neutrinoflux) at (sismobs.south east) {Flusso neutrini solari};
 
-\draw[link,<->] (surfaceobs.180) -- (unphys.170) node [sloped,pos=0.5, right] (stellaracc) {accuratezza};
-\draw[link,<->] (sismobs.340) -- (unphys.20) node [sloped,pos=0.5, left] (sismacc) {accuratezza};
+\draw[link,<->] (surfaceobs.50) -- (unphys.200) node [sloped,pos=0.5, anchor=south] (stellaracc) {accuratezza};
+\draw[link,<->] (sismobs.60) -- (unphys.270) node [sloped,pos=0.5, anchor=south] (sismacc) {accuratezza};
 
 \node[draw,purple,fit=(hydro)(thermal)(opacity)(ssm),ellipse,label={[purple,label distance=1cm]120:Oltre il Modello Solare standard}] (ssmapprox) at (hydro.west) {};
 \node[weak entity,anchor=east] (ssmapproxlist) at (ssmapprox.west) { \begin{itemize*} \item Composizione superficiale \item modelli idrodinamici dell'atmosfera e inclusione di effetti NLTE \item Effetto screening degli elettroni sulle reazioni nucleari\end{itemize*} };
