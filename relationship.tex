@@ -8,10 +8,12 @@
 
 \tikzstyle{every entity} = [top color=white, bottom color=blue!30, 
                             draw=blue!50!black!100, drop shadow,text width=2cm]
-\tikzstyle{every weak entity} = [drop shadow={shadow xshift=.7ex, 
-                                 shadow yshift=-.7ex}]
+%\tikzstyle{every weak entity} = [drop shadow={shadow xshift=.7ex, 
+%                                 shadow yshift=-.7ex}]
+\tikzstyle{every weak entity} = [draw=grey!50!white!100]
+
 \tikzstyle{every attribute} = [top color=white, bottom color=yellow!20, 
-                               draw=yellow, node distance=1cm, drop shadow,text width=1.5cm]
+                               draw=yellow, node distance=1cm, drop shadow,text width=1.5cm, fill opacity=0.2]
 \tikzstyle{every relationship} = [top color=white, bottom color=red!20, 
                                   draw=red!50!black!100, drop shadow,text width=2cm]
 \tikzstyle{every isa} = [top color=white, bottom color=green!20, 
@@ -32,14 +34,14 @@
 \node[entity] (corrections) [left=3cm of ssm] {Correzioni} edge [->] (ssm);
 \draw[link,<->] (unphys.240)--++(240:4cm) node[attribute] (diffusion) {Diffusione};
 \draw[link,<->] (unphys.260)--++(260:2cm) node[attribute] (MLT) {Modello convezione: MLT.};
-\draw[link,<->] (unphys.280)--++(270:5cm) node[attribute] (modefreqsurf) {Influenza della zona superficiale sulle frequenze delle oscillazioni};
+\draw[link,<->] (unphys.285)--++(285:5cm) node[attribute] (modefreqsurf) {Influenza della zona superficiale sulle frequenze delle oscillazioni};
 
 \node[entity] (surfaceobs) [above right=1cm and 1cm of calibration] {Osservabili stellari};
 \draw[link,->] (surfaceobs.90)--++(90:2cm) node[attribute] {Misura metellicit\'a superficiale};
 
 \node[entity] (modelobs) [left=3cm of surfaceobs] {Discrepanze modello/osservazioni} edge [->] (corrections);
 \node[entity,anchor=north west] (sismobs) at (surfaceobs.south east) {Osservabili sismologiche};
-\draw[link,<->]  (sismobs.20)--++(30:3cm) node[attribute] (freqs) {Frequenze oscillazioni adiabatiche};
+\draw[link,<->]  (sismobs.45)--++(45:3cm) node[attribute] (freqs) {Frequenze oscillazioni adiabatiche};
 \draw[link,<->] (sismobs.5)--++(5:2cm) node[attribute] (radiuscz) {Raggio fondo zona convettiva};
 
 \node[entity,anchor=north west] (neutrinoflux) at (sismobs.south east) {Flusso neutrini solari};
