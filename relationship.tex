@@ -48,8 +48,8 @@
 \draw[link,->] (sismobs.345)--++(345:5cm) node[attribute, anchor=345+180] (soundspeed) {Velocit\'a del suono (isothermal): $c_s(r)/u(r)$};
 \draw[link,->] (sismobs.30)--++(30:4cm) node[attribute,anchor=30+180] (densitybcz) {Densit\'a fondo zona convettiva $\rho_{cz}$};
 \draw[link,->] (ssm.315)--++(315:2cm) node[entity, anchor=315+180] (ssmoscmodes) {Soluzione problema agli autovalori modi normali adiabatici};
-
-\draw[link,->] (sismobs.215)--(ssm)++(1cm,0) node[entity, anchor=215+180] {Tecniche di inversione};
+\node[entity,right=1.5cm of ssm] (inversion)  {Tecniche di inversione};
+\draw[link,->] (sismobs.215)--(inversion.50);
 
 \node[entity,anchor=north west] (neutrinoflux) at (sismobs.south east) {Flusso neutrini solari};
 
