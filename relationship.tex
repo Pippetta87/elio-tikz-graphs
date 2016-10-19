@@ -24,7 +24,7 @@
 \begin{tikzpicture}[node distance=1.5cm, every edge/.style={link}]
 
   \node[entity] (ssm) at (0,0) {SSM};
-\draw[link,<-]  (ssm.120)--++(120:2cm) node[attribute] (hydro) {Equilibrio idrostatico};
+\draw[link,<-]  (ssm.120)--++(120:2cm) node[attribute,anchor=120+180] (hydro) {Equilibrio idrostatico};
 \draw[link,<-]  (ssm.160)--++(160:2cm) node[attribute] (thermal) {Equilibrio termico locale};
 \draw[link,<-]  (ssm.200)--++(200:2cm) node[attribute] (opacity) {Equilibrio radiativo + criterio di Schwartzchild};
 
