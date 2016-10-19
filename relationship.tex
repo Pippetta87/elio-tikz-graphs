@@ -28,7 +28,7 @@
 \draw[link,<-]  (ssm.160)--++(160:2cm) node[attribute,anchor=160+180] (thermal) {Equilibrio termico locale};
 \draw[link,<-]  (ssm.200)--++(200:2cm) node[attribute, anchor=200+180] (opacity) {Equilibrio radiativo + criterio di Schwartzchild};
 
-\node[relationship] (calibration) [above =1.5cm of ssm] {Calibrazione luminosit\'a e raggio} edge[<-] (ssm);
+\node[relationship] (calibration) [above =3cm of ssm] {Calibrazione luminosit\'a e raggio} edge[<-] (ssm);
 
 \node[entity] (unphys) [above right=1cm and 2cm of ssm] {Incertezze fisica del modello} edge [<-] (ssm);
 \node[entity] (corrections) [left=3cm of ssm] {Correzioni} edge [->] (ssm);
@@ -36,7 +36,7 @@
 \draw[link,<->] (unphys.115)--++(115:2cm) node[attribute, anchor=115+180] (MLT) {Modello convezione: MLT.};
 \draw[link,<->] (unphys.285)--++(285:5cm) node[attribute, anchor=285+180] (modefreqsurf) {Influenza della zona superficiale sulle frequenze delle oscillazioni};
 
-\node[entity] (surfaceobs) [above right=2.5cm and 1cm of calibration] {Osservabili stellari};
+\node[entity] (surfaceobs) [above right=3cm and 3cm of ssm] {Osservabili stellari};
 \draw[link,->] (surfaceobs.90)--++(90:2cm) node[attribute, anchor=90+180] {Misura metellicit\'a superficiale};
 
 \node[entity] (modelobs) [left=3cm of surfaceobs] {Discrepanze modello/osservazioni} edge [->] (corrections);
