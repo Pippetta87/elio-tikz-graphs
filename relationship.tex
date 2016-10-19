@@ -15,7 +15,7 @@
 
 \tikzstyle{every weak entity}=[fill=black!20!white!100]
 
-\tikzstyle{every attribute} = [fill=yellow, draw=yellow, node distance=1cm, drop shadow,text width=1.5cm, fill opacity=0.5]
+\tikzstyle{every attribute} = [fill=yellow!100, draw=yellow, node distance=1cm, drop shadow,text width=1.5cm, fill opacity=0.5]
 
 \tikzstyle{every relationship} = [top color=white, bottom color=red!20, draw=red!50!black!100, drop shadow,text width=2cm]
 
@@ -43,9 +43,9 @@
 \node[entity,anchor=north west] (sismobs) at (surfaceobs.south east) {Osservabili sismologiche};
 \draw[link,->]  (sismobs.45)--++(45:3cm) node[attribute] (freqs) {Frequenze oscillazioni adiabatiche};
 \draw[link,->] (sismobs.5)--++(5:2cm) node[attribute] (radiuscz) {Raggio fondo zona convettiva};
-\draw[link,->] (sismobs.320)--++(320:2cm) node[attribute] (heliumenv) {$Y_{ph}$};
-\draw[link,->] (sismobs.340)--++(340:3cm) node[attribute] (soundspeed) {Velocit\'a del suono (isothermal): $c_s(u)$};
-\draw[link,->] (sismobs.300)--++(300:2cm) node[attribute] (densitybcz) {Densit\'a fondo zona convettiva $\rho_{cz}$};
+\draw[link,->] (sismobs.15)--++(15:4cm) node[attribute] (heliumenv) {$Y_{ph}$};
+\draw[link,->] (sismobs.355)--++(355:5cm) node[attribute] (soundspeed) {Velocit\'a del suono (isothermal): $c_s(r)/u(r)$};
+\draw[link,->] (sismobs.30)--++(30:4cm) node[attribute] (densitybcz) {Densit\'a fondo zona convettiva $\rho_{cz}$};
 
 \node[entity,anchor=north west] (neutrinoflux) at (sismobs.south east) {Flusso neutrini solari};
 
