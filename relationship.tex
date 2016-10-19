@@ -38,7 +38,7 @@
 \node[entity] (surfaceobs) [above right=3cm and 3cm of ssm] {Osservabili stellari};
 \draw[link,->] (surfaceobs.90)--++(90:2cm) node[attribute, anchor=90+180] {Misura metellicit\'a superficiale};
 
-\node[entity] (modelobs) [below=1.5cm of surfaceobs.south east,anchor=north] {Discrepanze modello/osservazioni}; 
+\node[entity] (modelobs) [below=3cm of surfaceobs.south east,anchor=north] {Discrepanze modello/osservazioni}; 
 \node[entity,anchor=north west] (corrections) at (modelobs.south east) {Correzioni} edge [->,in=
 30,out=60] (ssm);
 \node[entity,anchor=north west] (sismobs) at (surfaceobs.south east) {Osservabili sismologiche};
@@ -47,6 +47,7 @@
 \draw[link,->] (sismobs.8)--++(8:4cm) node[attribute, anchor=8+180] (heliumenv) {$Y_{ph}$};
 \draw[link,->] (sismobs.345)--++(345:5cm) node[attribute, anchor=345+180] (soundspeed) {Velocit\'a del suono (isothermal): $c_s(r)/u(r)$};
 \draw[link,->] (sismobs.30)--++(30:4cm) node[attribute,anchor=30+180] (densitybcz) {Densit\'a fondo zona convettiva $\rho_{cz}$};
+\draw[link,->] (ssm.315)--++(315:2cm) node[entity, anchor=315+180] {Soluzione problema agli autovalori modi normali adiabatici};
 
 \node[entity,anchor=north west] (neutrinoflux) at (sismobs.south east) {Flusso neutrini solari};
 
