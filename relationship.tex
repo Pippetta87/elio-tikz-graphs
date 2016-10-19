@@ -31,14 +31,14 @@
 \node[relationship] (calibration) [above =3cm of ssm] {Calibrazione luminosit\'a e raggio} edge[<-] (ssm);
 
 \node[entity] (unphys) [below=2cm of ssm] {Incertezze fisica del modello} edge [<-] (ssm);
-\draw[link,<->] (unphys.100)--++(100:4cm) node[attribute, anchor=100+180] (diffusion) {Diffusione};
-\draw[link,<->] (unphys.115)--++(115:2cm) node[attribute, anchor=115+180] (MLT) {Modello convezione: MLT.};
-\draw[link,<->] (unphys.285)--++(285:5cm) node[attribute, anchor=285+180] (modefreqsurf) {Influenza della zona superficiale sulle frequenze delle oscillazioni};
+\draw[link,<->] (unphys.200)--++(200:4cm) node[attribute, anchor=200+180] (diffusion) {Diffusione};
+\draw[link,<->] (unphys.215)--++(215:2cm) node[attribute, anchor=215+180] (MLT) {Modello convezione: MLT.};
+\draw[link,<->] (unphys.250)--++(250:4cm) node[attribute, anchor=250+180] (modefreqsurf) {Influenza della zona superficiale sulle frequenze delle oscillazioni};
 
 \node[entity] (surfaceobs) [above right=3cm and 3cm of ssm] {Osservabili stellari};
 \draw[link,->] (surfaceobs.90)--++(90:2cm) node[attribute, anchor=90+180] {Misura metellicit\'a superficiale};
 
-\node[entity] (modelobs) [below=1.5cm of surfaceobs.south,anchor=south east] {Discrepanze modello/osservazioni}; 
+\node[entity] (modelobs) [below=1.5cm of surfaceobs.south east,anchor=north] {Discrepanze modello/osservazioni}; 
 \node[entity,anchor=north west] (corrections) at (modelobs.south east) {Correzioni} edge [->,in=
 30,out=60] (ssm);
 \node[entity,anchor=north west] (sismobs) at (surfaceobs.south east) {Osservabili sismologiche};
