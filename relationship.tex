@@ -1,4 +1,4 @@
-% the tikz-er2.sty package is available at:
+% the tikz-er2.sty package is available 
 % http://tagus.inesc-id.pt/~pcalado/tikzer2/tikz-er2.
 \documentclass[../main.tex]{subfiles}
 
@@ -48,7 +48,7 @@
 \draw[link,->] (sismobs.345)--++(345:5cm) node[attribute, anchor=345+180] (soundspeed) {Velocit\'a del suono (isothermal): $c_s(r)/u(r)$};
 \draw[link,->] (sismobs.30)--++(30:4cm) node[attribute,anchor=30+180] (densitybcz) {Densit\'a fondo zona convettiva $\rho_{cz}$};
 \draw[link,->] (ssm.315)--++(315:2cm) node[entity, anchor=315+180] (ssmoscmodes) {Soluzione problema agli autovalori modi normali adiabatici};
-\node[entity,right=1.5cm of ssm] (inversion)  {Tecniche di inversione};
+\node[entity,below=1.5cm of modelobs] (inversion)  {Tecniche di inversione};
 \draw[link,->] (sismobs.215)--(inversion.50);
 
 \node[entity,anchor=north west] (neutrinoflux) at (sismobs.south east) {Flusso neutrini solari};
