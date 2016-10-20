@@ -56,7 +56,7 @@
 \draw[link,<->] (surfaceobs.200) -- (unphys.50) node [sloped,pos=0.5, anchor=north] (stellaracc) {accuratezza};
 \draw[link,<->] (sismobs.270) -- (unphys.60) node [sloped,pos=0.5, anchor=south] (sismacc) {accuratezza};
 
-\node[draw,purple,fit=(hydro)(thermal)(opacity)(ssm),ellipse,label={[purple,label distance=1cm]120:Oltre il Modello Solare standard}] (ssmapprox) at (hydro.west) {};
+\node[draw,purple,fit=(hydro)(thermal)(opacity)(ssm)(unphys),ellipse,label={[purple,label distance=1cm]120:Oltre il Modello Solare standard}] (ssmapprox) at (hydro.west) {};
 \node[weak entity,anchor=east] (ssmapproxlist) at (ssmapprox.west) { \begin{itemize*} \item Composizione superficiale \item modelli idrodinamici dell'atmosfera e inclusione di effetti NLTE \item Effetto screening degli elettroni sulle reazioni nucleari\end{itemize*} };
 
 \end{tikzpicture}
